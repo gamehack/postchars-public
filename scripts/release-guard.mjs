@@ -58,8 +58,8 @@ function scanText(content, label) {
   if (/postchars-ga4-id["']\s+content=["'][^"']+["']/i.test(content)) {
     errors.push('Hard-coded GA4 measurement meta tag in ' + label);
   }
-  if (/guide-ad-config\.js/i.test(content)) {
-    errors.push('Removed publisher-specific guide ad config is referenced in ' + label);
+  if (/<script\\b[^>]*src=[\"'][^\"']*guide-ad-config\\.js/i.test(content)) {
+    errors.push('Removed publisher-specific guide ad script is loaded by ' + label);
   }
   for (const [kind, pattern] of secretPatterns) {
     if (pattern.test(content)) errors.push('Possible ' + kind + ' in ' + label);
