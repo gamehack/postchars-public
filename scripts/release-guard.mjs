@@ -26,8 +26,8 @@ const blocked = [
   /^marketing\//i, /^internal\//i, /^workflow-templates\//i,
   /^\.env(?:\.|$)/i, /\.(?:pem|key|p12|pfx|crt|cer)$/i,
   /^public\/(?:ads\.txt|indexnow-key\.txt|guide-ad-config\.js|guide-ad-frame\.html|native-ad-frame\.html)$/i,
-  /^scripts\/(?:report-adsterra-publisher|adsterra-api-core(?:\.test)?|report-gsc-url-inspection|check-production|submit-indexnow)\.mjs$/i,
-  /^\.github\/workflows\/(?:adsterra-publisher-report|gsc-url-inspection|production-health|indexnow|bootstrap-lockfile|lighthouse-weekly)\.ya?ml$/i
+  /^scripts\/(?:report-adsterra-publisher|adsterra-api-core(?:\.test)?|report-gsc-url-inspection)\.mjs$/i,
+  /^\.github\/workflows\/(?:adsterra-publisher-report|gsc-url-inspection|bootstrap-lockfile)\.ya?ml$/i
 ];
 const secretPatterns = [
   ['private key', /-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----/],

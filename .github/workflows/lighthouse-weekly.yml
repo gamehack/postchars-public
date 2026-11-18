@@ -1,0 +1,40 @@
+name: PostChars weekly Lighthouse lab baseline
+on:
+  schedule:
+    - cron: '15 4 * * 1'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/lighthouse-weekly.yml'
+      - 'lighthouserc.json'
+      - 'scripts/summarize-lighthouse.mjs'
+permissions:
+  contents: read
+concurrency:
+  group: postchars-lighthouse
+  cancel-in-progress: false
+jobs:
+  lighthouse:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run lab performance and accessibility audit
+        run: |
+          npm install --global @lhci/cli@0.15.1
+          lhci autorun --config=./lighthouserc.json
+      - name: Print real Lighthouse scores and Core Web Vitals lab measurements
+        if: always()
+        run: node scripts/summarize-lighthouse.mjs
+      - name: Keep Lighthouse artifacts for inspection
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: postchars-lighthouse-report
+          path: lighthouse-reports/
+          if-no-files-found: ignore
+          retention-days: 14

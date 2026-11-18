@@ -62,3 +62,13 @@ source fork is needed.
 For the production Pages project, set `POSTCHARS_REQUIRE_OPERATOR_CONFIG=1`.
 This fail-closed gate requires all legacy analytics, advertising and verification
 settings, preventing a successful build that silently omits those integrations.
+
+
+## Public operational automation
+
+The public repository owns only checks that contain no private credentials or private business metrics:
+- Daily production reachability/SEO/ads.txt/runtime-frame check (.github/workflows/production-health.yml, 00:45 UTC).
+- Weekly Lighthouse lab baseline (.github/workflows/lighthouse-weekly.yml, Monday 04:15 UTC).
+- Push-triggered IndexNow sitemap submission (.github/workflows/indexnow.yml); the public key is fetched from the deployed site after the live sitemap matches the source commit. No verification key is committed.
+
+Private Google Search Console indexing reports and Adsterra publisher revenue/traffic reports stay in gamehack/postchars-ops; do not move their summaries or credentials into this public repository.
