@@ -195,8 +195,11 @@ for (const guide of ['guides/google-ads-character-limits/index.html', 'guides/tw
 }
 const guideConsent = await readFile(join(process.cwd(), 'dist', 'guide-consent.js'), 'utf8');
 if (!guideConsent.includes('function loadAnalytics()')) throw new Error('Optional analytics consent controller missing');
-if (/loadAd|adsbygoogle|googlesyndication|highrevenueformat|profitableratecpmnetwork/i.test(guideConsent)) {
-  throw new Error('Guide consent controller must not load advertising integrations');
+if (/adsbygoogle|googlesyndication|highrevenueformat|profitableratecpmnetwork/i.test(guideConsent)) {
+  throw new Error('Public guide consent must not contain account-specific provider URLs');
+}
+if (!guideConsent.includes('if(guideAd.enabled&&settings.advertising)loadAd();else unloadAd()')) {
+  throw new Error('Optional guide ad consent gate missing');
 }
 if (!guideConsent.includes("guidePath.includes('social-media-character-limits')?'social_media_limits'")) throw new Error('Social limits guide analytics classification missing');
 if (!guideConsent.includes('cross-platform-post-checker')) throw new Error('Cross-platform guide tool click tracking missing');

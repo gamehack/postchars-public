@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
-    "build": "npm run test && tsc --noEmit && vite build && node scripts/prerender.mjs && node scripts/enhance-html.mjs && node scripts/verify-seo.mjs && node scripts/audit-site.mjs && node scripts/check-bundle-budget.mjs",
+    "build": "npm run test && tsc --noEmit && vite build && node scripts/prerender.mjs && node scripts/enhance-html.mjs && node scripts/verify-seo.mjs && node scripts/audit-site.mjs && node scripts/check-bundle-budget.mjs && node scripts/apply-operator-config.mjs",
     "preview": "vite preview --host 0.0.0.0",
     "test": "vitest run tests/",
     "test:e2e": "playwright test",
