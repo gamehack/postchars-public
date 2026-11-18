@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Free text diff checker compares two versions line by line, highlights additions and removals, and can ignore case or whitespace. Browser-only, no upload.">
+<link rel="canonical" href="https://postchars.com/text-diff-checker/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/legal.css"><link rel="stylesheet" href="/growth-tools.css"><link rel="stylesheet" href="/editor-tools.css">
+<meta property="og:type" content="website"><meta property="og:site_name" content="PostChars">
+<meta property="og:title" content="Text Diff Checker – Compare Two Texts Online | PostChars"><meta property="og:description" content="Free text diff checker compares two versions line by line, highlights additions and removals, and can ignore case or whitespace. Browser-only, no upload.">
+<meta property="og:url" content="https://postchars.com/text-diff-checker/"><meta name="twitter:card" content="summary">
+<title>Text Diff Checker – Compare Two Texts Online | PostChars</title>
+<meta name="postchars-page-type" content="text-utility">
+<script src="/analytics-config.js"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Text Diff Checker – Compare Lines & Words","url":"https://postchars.com/text-diff-checker/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","description":"Free text diff checker compares two versions line by line, highlights additions and removals, and can ignore case or whitespace. Browser-only, no upload.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"PostChars","url":"https://postchars.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://postchars.com/"},{"@type":"ListItem","position":2,"name":"Text Diff Checker – Compare Texts Line by Line"}]}]}</script>
+</head><body data-editor-tool="diff">
+<header><a class="brand" href="/">postchars<span>.</span></a>
+<nav aria-label="Navigation"><a href="/">Tools</a><a href="/character-counter/">Character Counter</a><a href="/word-counter/">Word Counter</a><a href="/privacy/">Privacy</a></nav></header>
+<main><article class="growth-article">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Text Diff Checker – Compare Texts Line by Line</span></nav>
+<small class="eyebrow">FREE PRIVATE TEXT TOOL · NOVEMBER 2026</small>
+<h1>Text Diff Checker – Compare Texts Line by Line</h1>
+<p class="growth-lead">Paste an original and a revised version to see which lines were added, removed or kept. Your text stays in the browser.</p>
+
+<div class="growth-workspace">
+<div class="editor-fields">
+<div class="growth-field"><label for="diff-original">Original text</label><textarea id="diff-original" placeholder="Paste the first version here…" spellcheck="false"></textarea><label for="diff-original-file">Import original local text file</label><input id="diff-original-file" type="file" accept=".txt,.md,.csv,.json,.log,text/plain"></div>
+<div class="growth-field"><label for="diff-revised">Revised text</label><textarea id="diff-revised" placeholder="Paste the updated version here…" spellcheck="false"></textarea><label for="diff-revised-file">Import revised local text file</label><input id="diff-revised-file" type="file" accept=".txt,.md,.csv,.json,.log,text/plain"></div>
+</div>
+<div class="editor-options"><label for="diff-mode">Compare by <select id="diff-mode"><option value="lines">Lines</option><option value="words">Words (500 per side)</option><option value="characters">Characters (1,200 per side)</option></select></label><label for="diff-view">Display <select id="diff-view"><option value="unified">Unified</option><option value="side-by-side">Side by side (lines only)</option></select></label><label><input id="diff-ignore-case" type="checkbox"> Ignore letter case</label><label><input id="diff-ignore-whitespace" type="checkbox"> Ignore whitespace differences</label></div>
+<div class="editor-toolbar"><button id="diff-prev" type="button" class="secondary">Previous change</button><button id="diff-next" type="button" class="secondary">Next change</button><span id="diff-location" class="growth-status" role="status">No changes selected</span></div>
+<div class="editor-toolbar"><button id="compare-button" type="button">Compare text</button><button id="sample-button" type="button" class="secondary">Try example</button><button id="copy-button" type="button" class="secondary">Copy annotated changes</button><span id="copy-status" class="growth-status" role="status"></span></div>
+<p class="editor-alert" id="diff-status" role="status">Paste both versions to compare.</p>
+<div class="editor-results"><div class="growth-metrics" aria-live="polite"><div class="growth-metric"><strong id="diff-added">0</strong><span id="diff-added-label">Added lines</span></div><div class="growth-metric"><strong id="diff-removed">0</strong><span id="diff-removed-label">Removed lines</span></div><div class="growth-metric"><strong id="diff-unchanged">0</strong><span id="diff-unchanged-label">Unchanged lines</span></div></div></div>
+<div class="field-label" id="diff-output-title">Line-by-line differences</div>
+<div id="diff-output" class="editor-diff-output" role="region" aria-labelledby="diff-output-title">The highlighted line comparison will appear here.</div>
+<p class="growth-status">Supports up to 1,000 lines and 100,000 characters per side. Switch between line comparison and word-level highlighting. Word mode normalizes whitespace and supports 500 words per side.</p>
+</div>
+
+<h2>Compare lines, words and Unicode characters</h2><p>Choose line comparison for longer drafts, word comparison for rewritten passages, or character-level comparison to find punctuation and small edits without splitting combined emoji. Side-by-side view is available for line mode. Import two local text files if preferred; files are read in this browser only and never uploaded.</p><h2>How to compare two texts</h2>
+<ol><li>Paste your original paragraph, draft, log or configuration into the first box.</li><li>Paste the revised version into the second box.</li><li>Click <strong>Compare text</strong> to compute the line differences.</li><li>Review added and removed lines, or copy the annotated version for review.</li></ol>
+<h2>What do the highlighted changes mean?</h2>
+<p><strong>Added lines</strong> exist in the revised version but not in the matching location of the original. <strong>Removed lines</strong> appeared in the original. Unchanged lines provide context. A rewritten line generally appears as one removal plus one addition. Lines are matched in order using a longest-common-subsequence algorithm.</p>
+<h2>Ignore capitalization and whitespace</h2>
+<p>The optional Ignore letter case setting treats <code>Release</code> and <code>release</code> as equivalent for matching. Ignore whitespace collapses runs of spaces and trims the ends of each line. The display still shows the revised line when the normalized versions match.</p>
+<h2>When is a line diff useful?</h2>
+<p>Compare two versions of a product description before publishing, audit changed configuration lines, inspect updated terms, or verify a pasted transcript against an earlier draft. Line matching is deliberately simpler than full document revision tracking: moved blocks may appear as deletions and additions, and the tool does not interpret the meaning of an edit.</p>
+<h2>Privacy and large inputs</h2><p>All comparison runs locally in your browser. We do not upload entered text, store revisions or generate shareable URLs containing your content. To keep the workspace responsive, each input is limited to 1,000 lines and 100,000 characters. Character mode is limited to 1,200 grapheme clusters per side and word mode to 500 words per side; local file import has a 256 KB file-size limit. For much larger files, use a dedicated version control or diff program.</p>
+<h2>Frequently asked questions</h2>
+<h3>Can I compare two code snippets?</h3><p>Yes, if you paste them as plain text. This tool does not parse programming languages or ignore syntax-specific changes.</p>
+<h3>Why are edited lines shown twice?</h3><p>The comparison works at the line level. A changed line can appear as an old line removed and a new line added.</p>
+<h3>Does PostChars save either version?</h3><p>No. Entered text stays in browser memory while the page is open.</p>
+<div class="editor-related"><strong>Related free editing tools</strong><p><a href="/text-diff-checker/">Text Diff Checker</a> <a href="/find-and-replace-text/">Find and Replace</a> <a href="/readability-checker/">Readability Checker</a></p><p><a href="/word-counter/">Word Counter</a> <a href="/keyword-density-checker/">Keyword Density</a> <a href="/text-case-converter/">Case Converter</a></p></div>
+</article></main>
+<footer><a href="/">Home</a><a href="/character-counter/">Character Counter</a><a href="/about/">About</a><a href="/privacy/">Privacy</a><a href="/contact/">Contact</a><button class="footer-privacy-choices" type="button" data-privacy-open>Privacy choices</button><p>© 2026 PostChars. Independent online text tools.</p></footer>
+<script defer src="/guide-consent.js?v=20261031-2"></script>
+<script type="module" src="/src/editor-tools.ts"></script>
+</body></html>

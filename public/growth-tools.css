@@ -1,0 +1,40 @@
+/* Lightweight companion to legal.css for independent browser-only tools. */
+.growth-lead{font-size:17px;line-height:1.75;color:#56627a}
+.growth-workspace{margin:28px 0 36px;padding:24px;border:1px solid #e2e6f1;border-radius:18px;background:#fff;box-shadow:0 12px 38px rgba(27,39,75,.045)}
+.growth-workspace label,.growth-workspace .field-label{display:block;margin:0 0 8px;font-size:13px;color:#273147;font-weight:700}
+.growth-workspace textarea,.growth-workspace input[type="text"],.growth-workspace input[type="url"],.growth-workspace select{display:block;width:100%;padding:13px 14px;border:1px solid #cdd4e5;border-radius:10px;background:#fff;color:#202b43;font:inherit;font-size:15px;line-height:1.5;box-sizing:border-box}
+.growth-workspace textarea{min-height:160px;resize:vertical}
+.growth-workspace textarea:focus,.growth-workspace input:focus,.growth-workspace select:focus{outline:2px solid #6558e8;outline-offset:2px}
+.growth-field{margin-bottom:18px}
+.growth-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:15px 0}
+.growth-actions button{padding:10px 17px;background:#6558e8;color:#fff;font:inherit;font-size:13px;font-weight:700;border:0;border-radius:9px;cursor:pointer}
+.growth-actions button.secondary{color:#6256db;background:#f0effe}
+.growth-status{color:#53617e;font-size:12px}
+.growth-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:18px 0}
+.growth-metric{padding:14px 12px;border:1px solid #e4e8f2;border-radius:12px;background:#fafbfe;min-width:0}
+.growth-metric strong{display:block;font-size:24px;color:#273147;font-weight:800;overflow-wrap:anywhere}
+.growth-metric span{display:block;font-size:11px;color:#647086}
+.growth-note{margin:14px 0;font-size:13px;color:#556277;line-height:1.7}
+.growth-related{margin:35px 0;padding:18px 20px;border-radius:12px;background:#f0effe}
+.growth-related p{margin:6px 0}
+.growth-table{width:100%;border-collapse:collapse;text-align:left;font-size:13px}
+.growth-table th,.growth-table td{padding:11px 10px;border-bottom:1px solid #e5e7ef;overflow-wrap:anywhere}
+.growth-table th{color:#34405b;background:#f7f8fc}
+.growth-controls{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.growth-controls label{margin-bottom:0}
+.growth-controls select{max-width:190px}
+.growth-preview-controls{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 0}
+.growth-preview-controls button{border:1px solid #cdd4e5;border-radius:9px;background:#fff;color:#34405b;padding:9px 13px;font:inherit;font-size:12px;font-weight:700;cursor:pointer}
+.growth-preview-controls button[aria-pressed="true"]{border-color:#6558e8;background:#f0effe;color:#5145ca}
+.growth-preview-controls button:focus-visible{outline:2px solid #6558e8;outline-offset:2px}
+.growth-serp{margin:15px 0 22px;padding:17px 18px;border:1px solid #e2e7f1;border-radius:12px;background:#fff;max-width:660px}
+.growth-serp-mobile{max-width:390px}
+.growth-serp-mobile .growth-serp-title{font-size:18px;white-space:normal;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden}
+.growth-serp-mobile .growth-serp-description{font-size:13px;line-height:1.5}
+.growth-serp-url{font-size:12px;color:#4d5156;overflow-wrap:anywhere}
+.growth-serp-title{font-size:20px;font-family:Arial,sans-serif;color:#1a0dab;line-height:1.5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.growth-serp-description{color:#4d5156;font-size:14px;line-height:1.55;overflow-wrap:anywhere}
+.growth-output{min-height:88px!important;font-family:ui-monospace,SFMono-Regular,Menlo,monospace!important;font-size:12px!important}
+article.growth-article ol{padding-left:22px}
+article.growth-article h3{font-size:16px;margin-top:20px}
+@media(max-width:600px){.growth-workspace{padding:15px}.growth-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.growth-serp{padding:12px}.growth-serp-title{font-size:18px}}

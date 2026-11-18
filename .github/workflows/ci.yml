@@ -1,0 +1,54 @@
+name: PostChars public CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Release guard, build, tests and audit
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - name: Checkout full public history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Verify publishable tree and history
+        run: node scripts/release-guard.mjs
+      - name: Audit dependency license metadata and attribution
+        run: node scripts/license-gate.mjs
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Unit tests, types, build, SEO and bundle checks
+        run: npm run build
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Desktop and mobile browser E2E
+        run: npm run test:e2e
+      - name: Runtime dependency security audit
+        run: npm run audit:production
+      - name: Preserve browser failure report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: postchars-playwright-failures
+          path: playwright-report/
+          if-no-files-found: ignore
+          retention-days: 7
+      - name: Emit automated run summary
+        if: always()
+        run: |
+          echo "## PostChars CI" >> "$GITHUB_STEP_SUMMARY"
+          echo "Source: $GITHUB_REPOSITORY, commit: $GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"
+          echo "Release guard, build, E2E and dependency audit are required to pass before publication."

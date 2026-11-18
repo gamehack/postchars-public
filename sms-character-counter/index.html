@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Free SMS character counter calculates GSM-7 and Unicode encoding, 160/153 versus 70/67 limits, segments and remaining space. Private and instant.">
+<link rel="canonical" href="https://postchars.com/sms-character-counter/">
+<link rel="stylesheet" href="/legal.css"><link rel="stylesheet" href="/growth-tools.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website"><meta property="og:site_name" content="PostChars">
+<meta property="og:title" content="SMS Character Counter & Segment Calculator | PostChars"><meta property="og:description" content="Free SMS character counter calculates GSM-7 and Unicode encoding, 160/153 versus 70/67 limits, segments and remaining space. Private and instant.">
+<meta property="og:url" content="https://postchars.com/sms-character-counter/"><meta name="twitter:card" content="summary">
+<title>SMS Character Counter & Segment Calculator | PostChars</title>
+<meta name="postchars-page-type" content="text-utility">
+<script src="/analytics-config.js"></script><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"SMS Segment Counter","url":"https://postchars.com/sms-character-counter/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","description":"Free SMS character counter calculates GSM-7 and Unicode encoding, 160/153 versus 70/67 limits, segments and remaining space. Private and instant.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"PostChars","url":"https://postchars.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://postchars.com/"},{"@type":"ListItem","position":2,"name":"SMS Segment Counter"}]}]}</script>
+</head>
+<body data-growth-tool="sms">
+<header><a class="brand" href="/">postchars<span>.</span></a>
+<nav aria-label="Navigation"><a href="/">Tools</a><a href="/word-counter/">Word Counter</a><a href="/google-ads-character-counter/">Google Ads</a><a href="/privacy/">Privacy</a></nav></header>
+<main><article class="growth-article">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">SMS Segment Counter</span></nav>
+<small class="eyebrow">FREE BROWSER-ONLY TEXT TOOL · NOVEMBER 2026</small>
+<h1>SMS Character Counter & Segment Calculator</h1>
+<p class="growth-lead">A plain character count cannot predict how many SMS segments a text will use. Check the encoding, message units and estimated segments before sending.</p>
+<div class="growth-workspace">
+<label for="tool-text">SMS text</label><textarea id="tool-text" spellcheck="true" placeholder="Type or paste the message you want to send…" aria-describedby="sms-details"></textarea>
+<div class="growth-metrics" aria-live="polite">
+<div class="growth-metric"><strong id="sms-encoding">GSM-7</strong><span>Encoding</span></div>
+<div class="growth-metric"><strong id="sms-units">0</strong><span>Encoded units</span></div>
+<div class="growth-metric"><strong id="sms-segments">0</strong><span>Estimated SMS segments</span></div>
+<div class="growth-metric"><strong id="sms-remaining">160</strong><span>Units left in segment</span></div></div>
+<p class="growth-note" id="sms-details">Standard GSM-7: 160 units for one segment.</p>
+<p class="growth-note" id="sms-warning">Extended characters use two units.</p>
+<div class="growth-actions"><button type="button" id="sample-button" class="secondary">Try example</button><button type="button" id="copy-button">Copy message</button><span class="growth-status" id="copy-status" role="status"></span></div>
+<p class="growth-status">Calculated locally. No message is sent or stored. Segments are estimates; carrier and sender configurations can differ.</p>
+</div>
+<h2>Why SMS encoding changes the number of segments</h2>
+<p>SMS messages use up to 140 bytes of payload. Standard GSM-7 messages fit <strong>160 septets</strong> in one segment; concatenated messages reserve space for a header, leaving <strong>153 septets per segment</strong>. The GSM extension table includes characters such as <code>^</code>, <code>{</code>, <code>}</code>, <code>\</code> and <code>€</code>; each takes <strong>two</strong> septets.</p>
+<p>One unsupported character can switch the entire SMS to Unicode mode. A typical Unicode SMS fits 70 UTF-16 units in one segment or 67 in each concatenated segment. Emoji often use two such units. This distinction matters when a provider bills by segment, not by message.</p>
+<table class="growth-table"><thead><tr><th>SMS encoding</th><th>Single segment</th><th>Multi-segment</th></tr></thead><tbody><tr><td>GSM-7</td><td>160 units</td><td>153 units each</td></tr><tr><td>Unicode (UCS-2)</td><td>70 units</td><td>67 units each</td></tr></tbody></table>
+<p>For example, 161 ordinary GSM-7 characters require two concatenated segments, while 71 Unicode units require two. A curly quotation mark can change the encoding of a text that otherwise contains only English.</p>
+<h2>Estimate segments before sending bulk or transactional SMS</h2>
+<ol><li>Paste the exact SMS body, including links and opt-out wording.</li><li>Check whether the encoding is GSM-7 or Unicode.</li><li>Review the estimated segment count, especially near 70 or 160 units.</li><li>Confirm the final segment count and any local sender restrictions with your SMS provider.</li></ol>
+<p>This calculator follows standard GSM-7 and Unicode segment lengths. Some carriers, national language shift tables, UDH formats and toll-free routes can differ. It is not a delivery simulator or a pricing quote. Twilio publishes the <a href="https://www.twilio.com/docs/glossary/what-sms-character-limit" target="_blank" rel="noopener noreferrer">underlying SMS character and segment rules</a>.</p>
+<h2>SMS character counter FAQ</h2>
+<h3>Why did one emoji turn a one-part SMS into two parts?</h3><p>An emoji is not generally available in the GSM-7 alphabet, so the message falls back to Unicode encoding. The single-part limit is reduced from 160 GSM-7 units to 70 Unicode units.</p>
+<h3>Do curly quotes and the euro sign behave the same way?</h3><p>No. Smart quotation marks generally require Unicode mode, while the euro sign is part of the GSM-7 extension table and consumes two GSM septets.</p>
+<h3>Does one SMS always cost the same?</h3><p>No. Providers commonly charge by segment, and prices vary by recipient country, channel and sender type. This page estimates segments only.</p>
+<div class="growth-related"><strong>More free writing tools</strong><p><a href="/character-counter/">Character Counter</a> · <a href="/word-counter/">Word Counter</a> · <a href="/google-ads-character-counter/">Google Ads Counter</a></p><p><a href="/sms-character-counter/">SMS Segment Counter</a> · <a href="/serp-snippet-preview/">SEO Snippet Preview</a> · <a href="/keyword-density-checker/">Keyword Density Checker</a></p></div>
+</article></main>
+<footer><a href="/">Home</a><a href="/character-counter/">Character Counter</a><a href="/about/">About</a><a href="/privacy/">Privacy</a><a href="/contact/">Contact</a><button class="footer-privacy-choices" type="button" data-privacy-open>Privacy choices</button><p>© 2026 PostChars. Independent online text tools.</p></footer>
+<script defer src="/guide-consent.js?v=20261031-2"></script>
+<script type="module" src="/src/growth-tools.ts"></script>
+</body></html>

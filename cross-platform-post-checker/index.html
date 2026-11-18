@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Compare 12 social and messaging fields, including X weighted rules, Bluesky UTF-8 and scoped Reddit, Facebook and Pinterest references. Free and private.">
+<link rel="canonical" href="https://postchars.com/cross-platform-post-checker/"><link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/legal.css"><link rel="stylesheet" href="/cross-platform-checker.css">
+<meta property="og:type" content="website"><meta property="og:site_name" content="PostChars">
+<meta property="og:title" content="Cross-Platform Post Checker | PostChars">
+<meta property="og:description" content="Check a social post across platforms with scoped character-counting rules. All text stays in your browser.">
+<meta property="og:url" content="https://postchars.com/cross-platform-post-checker/">
+<meta name="twitter:card" content="summary_large_image">
+<title>Cross-Platform Post Checker: Social Media Character Limits | PostChars</title>
+<script src="/analytics-config.js"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Cross-Platform Post Checker","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","url":"https://postchars.com/cross-platform-post-checker/","description":"Compare one draft across platform-specific post and caption length rules in your browser.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+</head><body data-special-tool="multiplatform">
+<header><a class="brand" href="/">postchars<span>.</span></a><nav aria-label="Navigation"><a href="/">All tools</a><a href="/character-counter/">Character Counter</a><a href="/privacy/">Privacy</a></nav></header>
+<main><article>
+<nav aria-label="Breadcrumb" class="breadcrumbs"><a href="/">Home</a> / Cross-platform checker</nav>
+<small class="eyebrow">FREE MULTI-PLATFORM TEXT TOOL</small>
+<h1>Cross-Platform Post Checker for 12 Social Platforms</h1>
+<p class="lead">Write once, check multiple platform character limits. Each platform may count links, emoji and Unicode differently. Your text stays in this browser and is never sent to our server.</p>
+<div class="cross-workspace"><label for="tool-input">Your post draft</label><textarea id="tool-input" maxlength="20000" rows="7" spellcheck="true" placeholder="Write or paste a post to compare across platforms…"></textarea>
+<div class="cross-actions"><button type="button" id="copy-button">Copy draft</button><button type="button" id="sample-button">Try example</button><button type="button" id="clear-button">Clear</button><span id="copy-status" role="status" aria-live="polite"></span></div>
+<p id="summary" role="status" aria-live="polite">Start typing to see your platform checks.</p>
+<div id="platform-grid" class="platform-grid" aria-label="Platform length comparisons"></div>
+</div>
+<h2>Plain-text platform excerpts</h2>
+<p>These previews show the beginning of your own draft. They do not simulate real social feeds or guarantee how the platform will truncate a post.</p>
+<div class="cross-previews">
+<section><h3>X</h3><p id="preview-x">Your text preview will appear here.</p></section>
+<section><h3>Instagram</h3><p id="preview-instagram">Your text preview will appear here.</p></section>
+<section><h3>LinkedIn</h3><p id="preview-linkedin">Your text preview will appear here.</p></section>
+</div>
+<h2>How to read these results</h2>
+<p>For a field-by-field explanation of all 12 checks, including which limits are official, API-specific or planning references, read the <a href="/guides/social-media-character-limits/">Social Media Character Limits: 12 Platforms Compared</a> guide.</p>
+<p>The checker uses X's published weighted-count algorithm, Bluesky's documented grapheme and UTF-8 limits, and explicitly scoped rules for several API fields. Other platform limits are labelled planning references and may not match the current publisher app. Facebook has no verified universal hard limit. Reddit title and Pinterest prefilled descriptions are scoped references. An in-limit result is <strong>not</strong> a guarantee that a platform will accept the post.</p>
+<h2>Common reasons the same draft has different character counts</h2>
+<table class="growth-table"><thead><tr><th scope="col">Example</th><th scope="col">What to check</th></tr></thead><tbody>
+<tr><td>A URL in an X post</td><td>Recognized links are counted using X's configured fixed link weight, rather than the visible URL length.</td></tr>
+<tr><td>Emoji and combined characters</td><td>Visible graphemes, Unicode code points and UTF-16 units can differ; the relevant platform rule determines the displayed count.</td></tr>
+<tr><td>A Bluesky post</td><td>The documented reference includes both a grapheme limit and a UTF-8 byte limit, so one draft may fail one measure before the other.</td></tr>
+</tbody></table>
+<h2>Which platform counter should you use?</h2>
+<p>For standard X posts, <a href="/twitter-character-counter/">the X character counter</a> explains weighted links and emoji. <a href="/instagram-caption-counter/">Instagram caption counting</a> and <a href="/linkedin-character-counter/">LinkedIn post counting</a> provide focused drafting workspaces. <a href="/tiktok-caption-counter/">TikTok</a>, <a href="/bluesky-character-counter/">Bluesky</a>, <a href="/discord-message-counter/">Discord</a>, and <a href="/telegram-bot-message-counter/">Telegram Bot API</a> have dedicated checks with source-specific notes. <a href="/google-ads-character-counter/">Google Ads</a> uses different asset rules and is intentionally not treated as a social post.</p>
+<h2>FAQ</h2><h3>Is the same text valid everywhere?</h3><p>No. Fields, media types, paid plans, app versions, and platform validation methods vary. Use each destination publisher as the final validator.</p>
+<h3>Is my text uploaded?</h3><p>No. Calculations and copy actions are performed locally. Optional analytics measure anonymous actions only after consent, never your draft.</p>
+<h3>Why are counts different?</h3><p>Visible graphemes, Unicode code points, UTF-16 units, UTF-8 bytes and X weighted characters are not interchangeable, especially for URLs and emoji.</p>
+</article></main>
+<footer><a href="/about/">About</a> · <a href="/privacy/">Privacy</a> · <a href="/contact/">Contact</a> · <a href="#" data-privacy-open>Privacy preferences</a></footer>
+<script src="/guide-consent.js?v=20261031-2"></script><script type="module" src="/src/cross-platform-checker.ts"></script>
+</body></html>

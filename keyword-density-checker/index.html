@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Check word density, target keyword frequency, and repeated one-, two- or three-word phrases. Compare drafts and export CSV privately in your browser.">
+<link rel="canonical" href="https://postchars.com/keyword-density-checker/">
+<link rel="stylesheet" href="/legal.css"><link rel="stylesheet" href="/growth-tools.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website"><meta property="og:site_name" content="PostChars">
+<meta property="og:title" content="Free Word Density Checker & Keyword Counter | PostChars"><meta property="og:description" content="Check word density, target keyword frequency, and repeated one-, two- or three-word phrases. Compare drafts and export CSV privately in your browser.">
+<meta property="og:url" content="https://postchars.com/keyword-density-checker/"><meta name="twitter:card" content="summary">
+<title>Free Word Density Checker & Keyword Counter | PostChars</title>
+<meta name="postchars-page-type" content="text-utility">
+<script src="/analytics-config.js"></script><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Keyword Density Checker","url":"https://postchars.com/keyword-density-checker/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","description":"Check word density, target keyword frequency, and repeated one-, two- or three-word phrases. Compare drafts and export CSV privately in your browser.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"PostChars","url":"https://postchars.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://postchars.com/"},{"@type":"ListItem","position":2,"name":"Keyword Density Checker"}]}]}</script>
+</head>
+<body data-growth-tool="density">
+<header><a class="brand" href="/">postchars<span>.</span></a>
+<nav aria-label="Navigation"><a href="/">Tools</a><a href="/word-counter/">Word Counter</a><a href="/google-ads-character-counter/">Google Ads</a><a href="/privacy/">Privacy</a></nav></header>
+<main><article class="growth-article">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Keyword Density Checker</span></nav>
+<small class="eyebrow">FREE BROWSER-ONLY TEXT TOOL · NOVEMBER 2026</small>
+<h1>Keyword Density Checker & Word Density Counter</h1>
+<p class="growth-lead">Discover which words and short phrases appear most often in your draft. Check the counts, compare wording, and remove accidental repetition without uploading text.</p>
+<div class="growth-workspace">
+<label for="tool-text">Paste your draft</label><textarea id="tool-text" placeholder="Paste a blog post, product description or draft landing page here…" spellcheck="true"></textarea>
+<div class="growth-field"><label for="target-keyword">Target keyword or phrase (optional)</label><input id="target-keyword" type="text" maxlength="180" placeholder="e.g. landing page" autocomplete="off"></div>
+<div class="growth-field"><label for="compare-draft">Revised draft for comparison (optional)</label><textarea id="compare-draft" placeholder="Paste a second draft to compare the exact target phrase frequency…" spellcheck="true" style="min-height:90px"></textarea></div>
+<div class="growth-controls growth-field"><label for="density-size">Phrase length</label><select id="density-size"><option value="1">Single words</option><option value="2">Two-word phrases</option><option value="3">Three-word phrases</option></select>
+<label style="display:flex;align-items:center;gap:8px"><input type="checkbox" id="density-common" checked>Hide all-stopword phrases</label></div>
+<div class="growth-metrics" aria-live="polite" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+<div class="growth-metric"><strong id="density-words">0</strong><span>Words</span></div>
+<div class="growth-metric"><strong id="density-unique">0</strong><span>Unique words</span></div>
+<div class="growth-metric"><strong id="density-phrases">0</strong><span>Displayed terms</span></div></div>
+<div class="growth-metrics" aria-live="polite"><div class="growth-metric"><strong id="target-count">—</strong><span>Target occurrences</span></div><div class="growth-metric"><strong id="target-density">—</strong><span>Target density</span></div><div class="growth-metric"><strong id="target-compare">—</strong><span>Revised draft comparison</span></div></div>
+<p id="target-status" class="growth-status" role="status">Enter an optional target phrase to compare its exact frequency.</p>
+<div style="overflow-x:auto"><table class="growth-table"><thead><tr><th scope="col">Term or phrase</th><th scope="col">Occurrences</th><th scope="col">Density estimate</th></tr></thead><tbody id="density-body"><tr><td colspan="3">Paste text to see the most repeated terms and phrases.</td></tr></tbody></table></div>
+<div class="growth-actions"><button id="sample-button" type="button" class="secondary">Try example</button><button type="button" id="copy-button">Copy draft</button><button type="button" id="export-csv" class="secondary">Export visible CSV</button><span class="growth-status" id="copy-status" role="status"></span></div>
+<p class="growth-status">Runs locally. Phrase density is occurrences divided by total word count × 100. This is a descriptive metric, not a Google ranking score.</p>
+</div>
+<h2>How to check word density and compare two drafts</h2><p>Paste the original text to see the most frequent words and phrases. Enter a target keyword to count exact consecutive occurrences, regardless of case. Optionally paste a revised version to compare how the count and density changed. Export the visible frequency rows as CSV for offline review. Neither draft is uploaded.</p>
+<h2>What is keyword density?</h2><p>Keyword density estimates how often a selected word or exact phrase appears relative to the total word count. This tool uses <strong>occurrences ÷ total words × 100</strong>, displays the 20 most frequent terms, and distinguishes one-, two- and three-word phrases. Other tools may use a different denominator for multi-word phrases, so percentages are not always directly comparable.</p>
+<h2>Why should you check repeated phrases?</h2><p>Frequency analysis helps editors spot accidental repetition, inconsistent wording and overused product phrases. For a landing page, a repeated phrase might be intentional, but a page that reads like a list of keywords usually serves readers poorly. Frequency alone does not measure relevance, search intent, originality or quality.</p>
+<h2>What does “Hide all-stopword phrases” mean?</h2><p>Common English function words such as “the” and “and” can dominate the table. Hiding phrases made entirely of common words makes the table easier to scan while preserving the original total word count. For longer phrases, sequences containing useful words remain eligible.</p>
+<h2>How to check keyword frequency without over-optimizing</h2>
+<ol><li>Paste the actual draft you intend to publish.</li><li>Review single words for repetitive vocabulary or terminology drift.</li><li>Switch to two- and three-word phrases to find repeated expressions.</li><li>Edit for reader clarity; do not chase a fixed density percentage.</li></ol>
+<p>This tool uses Unicode-aware word tokenization. Some languages do not separate words with spaces and may require a locale-aware segmenter for accurate results. It is best suited to space-delimited text, especially English. Google's advice is to write helpful, people-first content rather than optimize around an arbitrary keyword-density target; see <a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content" target="_blank" rel="noopener noreferrer">Google Search Central guidance</a>.</p>
+<h2>Frequently asked questions</h2>
+<h3>Does a higher keyword density improve ranking?</h3><p>There is no universal percentage that guarantees ranking. The target phrase comparison is a writing diagnostic, not an SEO pass/fail score. A phrase-frequency table can help editing but does not substitute for answering the searcher's question.</p>
+<h3>Does this tool upload my content?</h3><p>No. The text and calculations stay in this browser tab and are not sent to PostChars.</p>
+<h3>Can I count phrases rather than individual words?</h3><p>Yes. Select two-word or three-word phrases to inspect repeated sequences of tokens.</p>
+<div class="growth-related"><strong>More free writing tools</strong><p><a href="/character-counter/">Character Counter</a> · <a href="/word-counter/">Word Counter</a> · <a href="/google-ads-character-counter/">Google Ads Counter</a></p><p><a href="/sms-character-counter/">SMS Segment Counter</a> · <a href="/serp-snippet-preview/">SEO Snippet Preview</a> · <a href="/keyword-density-checker/">Keyword Density Checker</a></p></div>
+</article></main>
+<footer><a href="/">Home</a><a href="/character-counter/">Character Counter</a><a href="/about/">About</a><a href="/privacy/">Privacy</a><a href="/contact/">Contact</a><button class="footer-privacy-choices" type="button" data-privacy-open>Privacy choices</button><p>© 2026 PostChars. Independent online text tools.</p></footer>
+<script defer src="/guide-consent.js?v=20261031-2"></script>
+<script type="module" src="/src/growth-tools.ts"></script>
+</body></html>

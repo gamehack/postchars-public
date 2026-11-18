@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Compare character limits and counting methods for 12 social and messaging platforms. See which limits are official, API-specific or planning references.">
+<link rel="canonical" href="https://postchars.com/guides/social-media-character-limits/">
+<link rel="stylesheet" href="/legal.css"><link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article"><meta property="og:site_name" content="PostChars">
+<meta property="og:title" content="Social Media Character Limits: 12 Platforms Compared | PostChars">
+<meta property="og:description" content="A careful comparison of platform fields, character-counting methods and documented limits for 12 social and messaging platforms.">
+<meta property="og:url" content="https://postchars.com/guides/social-media-character-limits/">
+<meta name="twitter:card" content="summary_large_image">
+<title>Social Media Character Limits: 12 Platforms Compared | PostChars</title>
+<meta name="postchars-page-type" content="editorial-guide">
+<script src="/analytics-config.js"></script><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Social Media Character Limits: 12 Platforms Compared","description":"A careful comparison of platform fields, character-counting methods and documented limits for 12 social and messaging platforms.","datePublished":"2026-11-01","dateModified":"2026-11-01","inLanguage":"en","isAccessibleForFree":true,"mainEntityOfPage":{"@type":"WebPage","@id":"https://postchars.com/guides/social-media-character-limits/"},"author":{"@type":"Organization","name":"PostChars","url":"https://postchars.com/"},"publisher":{"@type":"Organization","name":"PostChars","url":"https://postchars.com/"},"articleSection":"Social media publishing"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://postchars.com/"},{"@type":"ListItem","position":2,"name":"Cross-Platform Post Checker","item":"https://postchars.com/cross-platform-post-checker/"},{"@type":"ListItem","position":3,"name":"Social media character limits"}]}]}</script>
+</head>
+<body>
+<header><a class="brand" href="/">postchars<span>.</span></a><nav aria-label="Navigation"><a href="/">Tools</a><a href="/cross-platform-post-checker/">Cross-Platform Checker</a><a href="/privacy/">Privacy</a></nav></header>
+<main><article>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/cross-platform-post-checker/">Cross-Platform Checker</a><span aria-hidden="true">/</span><span aria-current="page">Social media limits</span></nav>
+<small class="eyebrow">SOCIAL MEDIA PUBLISHING GUIDE · UPDATED NOVEMBER 2026</small>
+<h1>Social Media Character Limits: 12 Platforms Compared</h1>
+<p class="lead">A “character” is not the same thing on every platform. One service may count visible grapheme clusters, another may count UTF-16 units or UTF-8 bytes, and X applies a weighted URL and character system. This guide explains what the PostChars checker measures—and where its numbers are only planning references.</p>
+<p><a href="/cross-platform-post-checker/"><strong>Open the free Cross-Platform Post Checker</strong></a> to compare one draft across 12 social and messaging fields. Text is processed locally in your browser.</p>
+<h2>Quick comparison: what the checker measures</h2>
+<p>The figures below describe the specific field implemented by PostChars, not a promise that every account, app version or publishing API accepts the same text. “Official/API” means the linked platform documentation states the field limit. “Reference” means the number or counting method is a useful planning estimate, not a verified universal enforcement rule.</p>
+<table><thead><tr><th scope="col">Platform</th><th scope="col">Field checked</th><th scope="col">Reference</th><th scope="col">Counting method</th><th scope="col">Scope</th></tr></thead><tbody>
+<tr><td>X</td><td>Standard post</td><td>280</td><td>Weighted units</td><td>Parser-based reference; recognized URLs use a fixed weight of 23. Paid and longer-post formats differ.</td></tr>
+<tr><td>Instagram</td><td>Caption</td><td>2,200</td><td>Visible graphemes</td><td>Meta publishing API documents 2,200 characters; grapheme counting is an estimate, not API validation.</td></tr>
+<tr><td>LinkedIn</td><td>Standard post</td><td>3,000</td><td>Visible graphemes</td><td>LinkedIn Help states 3,000 characters. Complex Unicode may count differently.</td></tr>
+<tr><td>Threads</td><td>Standard post</td><td>500</td><td>Visible graphemes</td><td>Common standard-post reference. Extended text attachments are a different format.</td></tr>
+<tr><td>YouTube</td><td>Video title</td><td>100</td><td>Visible graphemes</td><td>Official title field limit; this is not the video description limit.</td></tr>
+<tr><td>TikTok</td><td>Video caption</td><td>2,200</td><td>UTF-16 units</td><td>Official Direct Post API field. In-app publishing rules may differ.</td></tr>
+<tr><td>Bluesky</td><td>Post text</td><td>300 graphemes and 3,000 bytes</td><td>Graphemes + UTF-8 bytes</td><td>AT Protocol lexicon defines both constraints; both must be satisfied.</td></tr>
+<tr><td>Reddit</td><td>Post title</td><td>300</td><td>Unicode code points</td><td>Editorial planning reference, not a verified universal limit. Subreddit rules may be stricter.</td></tr>
+<tr><td>Discord</td><td>Standard message</td><td>2,000</td><td>UTF-16 units</td><td>Official standard cap; Nitro supports up to 4,000. UTF-16 is a planning approximation for emoji.</td></tr>
+<tr><td>Telegram</td><td>Bot API message</td><td>4,096</td><td>Unicode code points</td><td>Bot API sendMessage text after entity parsing. Media captions have separate limits.</td></tr>
+<tr><td>Facebook</td><td>Page post draft</td><td>No verified universal cap</td><td>Visible graphemes</td><td>Count-only workspace. The checker deliberately does not invent a hard limit.</td></tr>
+<tr><td>Pinterest</td><td>Pin description</td><td>500</td><td>Unicode code points</td><td>Official Save-button prefilled description limit, not a guarantee for every Pin composer field.</td></tr>
+</tbody></table>
+<h2>Why the counting method matters</h2>
+<p>Unicode text can be measured in several valid ways. A grapheme cluster is usually what a person perceives as one character; a code point is a Unicode value; JavaScript string length counts UTF-16 code units; and UTF-8 measures encoded bytes. These values can diverge for emoji, combining marks, flags and joined emoji sequences.</p>
+<p>X adds another layer: its published <a href="https://github.com/twitter/twitter-text" target="_blank" rel="noopener noreferrer">twitter-text rules</a> assign weighted lengths to characters and recognized URLs. A URL commonly consumes 23 weighted units regardless of its visible length. A plain <code>text.length</code> check cannot reproduce that behavior.</p>
+<p>Bluesky demonstrates why a single number is sometimes insufficient: its post record is constrained by both a grapheme maximum and a UTF-8 byte maximum. A draft can fit one limit and exceed the other.</p>
+<h2>How to use the comparison safely</h2>
+<ol>
+<li>Paste the exact draft into the <a href="/cross-platform-post-checker/">Cross-Platform Post Checker</a>.</li>
+<li>Read the field and scope shown on each platform card. A YouTube title, Telegram Bot API message and Pinterest prefilled description are not interchangeable fields.</li>
+<li>Check whether the result is an official/API constraint or a planning reference. Do not treat a reference as a platform guarantee.</li>
+<li>For a final check, paste the text into the destination platform’s own composer. Account type, API version, media type and product changes can affect acceptance.</li>
+</ol>
+<h2>Source documentation</h2>
+<ul>
+<li><a href="https://github.com/twitter/twitter-text" target="_blank" rel="noopener noreferrer">X text parsing: twitter-text</a></li>
+<li><a href="https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/reference/ig-user/media/" target="_blank" rel="noopener noreferrer">Instagram Graph API: media publishing reference</a></li>
+<li><a href="https://www.linkedin.com/help/linkedin/answer/a528176" target="_blank" rel="noopener noreferrer">LinkedIn Help: Post and share updates</a></li>
+<li><a href="https://help.instagram.com/" target="_blank" rel="noopener noreferrer">Meta Help Center: Instagram and Threads product guidance</a></li>
+<li><a href="https://support.google.com/youtube/answer/57407" target="_blank" rel="noopener noreferrer">YouTube Help: upload video details</a></li>
+<li><a href="https://developers.tiktok.com/docs/en/content-posting-api-reference-direct-post" target="_blank" rel="noopener noreferrer">TikTok Content Posting API: Direct Post</a></li>
+<li><a href="https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json" target="_blank" rel="noopener noreferrer">Bluesky AT Protocol: post lexicon</a></li>
+<li><a href="https://www.reddit.com/dev/api/" target="_blank" rel="noopener noreferrer">Reddit API documentation</a></li>
+<li><a href="https://support.discord.com/hc/en-us/articles/360034632292-Sending-Messages" target="_blank" rel="noopener noreferrer">Discord Help: Sending Messages</a></li>
+<li><a href="https://core.telegram.org/bots/api#sendmessage" target="_blank" rel="noopener noreferrer">Telegram Bot API: sendMessage</a></li>
+<li><a href="https://www.facebook.com/help/" target="_blank" rel="noopener noreferrer">Facebook Help Center</a></li>
+<li><a href="https://developers.pinterest.com/docs/web-features/buttons/" target="_blank" rel="noopener noreferrer">Pinterest Developers: Save button descriptions</a></li>
+</ul>
+<p><strong>Maintenance note:</strong> Platform rules and API schemas can change. PostChars labels uncertain or field-specific rules instead of presenting every number as a universal hard limit. This page was last reviewed on November 1, 2026.</p>
+<h2>Frequently asked questions</h2>
+<h3>Why does one draft get different counts on different platforms?</h3>
+<p>Platforms do not share one definition of a character. X uses weighted units, TikTok’s Direct Post API uses UTF-16 runes, Bluesky uses graphemes and UTF-8 bytes, and other checks may use code points or visible graphemes.</p>
+<h3>Does an “in limit” result guarantee the platform will accept my post?</h3>
+<p>No. The checker validates the scoped rule shown on each card. It cannot account for every account tier, moderation rule, media attachment, app version or live API change.</p>
+<h3>Why does Facebook show no limit?</h3>
+<p>PostChars has not verified a reliable universal Facebook Page post cap. It reports the draft length without inventing a pass/fail threshold.</p>
+<h3>Does PostChars upload my draft?</h3>
+<p>No. The comparison runs in your browser. Optional analytics, if you consent, record limited usage events and never include the text you enter.</p>
+</article></main>
+<footer><a href="/">Home</a><a href="/cross-platform-post-checker/">Cross-Platform Checker</a><a href="/about/">About</a><a href="/privacy/">Privacy</a><a href="/contact/">Contact</a><button class="footer-privacy-choices" type="button" data-privacy-open>Privacy choices</button><p>© 2026 PostChars. Independent online text tools.</p></footer>
+<script defer src="/guide-consent.js?v=20261101-1"></script>
+</body></html>

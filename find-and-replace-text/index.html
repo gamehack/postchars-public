@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Find and replace text in your browser with case-sensitive and whole-word options. Preview first or all replacements, copy results, no upload or account.">
+<link rel="canonical" href="https://postchars.com/find-and-replace-text/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/legal.css"><link rel="stylesheet" href="/growth-tools.css"><link rel="stylesheet" href="/editor-tools.css">
+<meta property="og:type" content="website"><meta property="og:site_name" content="PostChars">
+<meta property="og:title" content="Find and Replace Text Online – Free Text Replacer | PostChars"><meta property="og:description" content="Find and replace text in your browser with case-sensitive and whole-word options. Preview first or all replacements, copy results, no upload or account.">
+<meta property="og:url" content="https://postchars.com/find-and-replace-text/"><meta name="twitter:card" content="summary">
+<title>Find and Replace Text Online – Free Text Replacer | PostChars</title>
+<meta name="postchars-page-type" content="text-utility">
+<script src="/analytics-config.js"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Find and Replace Text Online","url":"https://postchars.com/find-and-replace-text/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","description":"Find and replace text in your browser with case-sensitive and whole-word options. Preview first or all replacements, copy results, no upload or account.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"PostChars","url":"https://postchars.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://postchars.com/"},{"@type":"ListItem","position":2,"name":"Find and Replace Text Online"}]}]}</script>
+</head><body data-editor-tool="replace">
+<header><a class="brand" href="/">postchars<span>.</span></a>
+<nav aria-label="Navigation"><a href="/">Tools</a><a href="/character-counter/">Character Counter</a><a href="/word-counter/">Word Counter</a><a href="/privacy/">Privacy</a></nav></header>
+<main><article class="growth-article">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Find and Replace Text Online</span></nav>
+<small class="eyebrow">FREE PRIVATE TEXT TOOL · NOVEMBER 2026</small>
+<h1>Find and Replace Text Online</h1>
+<p class="growth-lead">Replace a name, phrase or spelling consistently through a draft. Preview all changes before copying or applying them to your working text.</p>
+
+<div class="growth-workspace">
+<div class="growth-field"><label for="replace-original">Text to edit</label><textarea id="replace-original" placeholder="Paste your text here…" spellcheck="true"></textarea></div>
+<div class="editor-fields">
+<div class="growth-field"><label for="replace-query">Find (plain text)</label><input type="text" id="replace-query" autocomplete="off" placeholder="Word or phrase to find"></div>
+<div class="growth-field"><label for="replace-with">Replace with</label><input type="text" id="replace-with" autocomplete="off" placeholder="Replacement text (can be blank)"></div>
+</div>
+<div class="editor-options"><label><input id="replace-case" type="checkbox"> Match case</label><label><input id="replace-words" type="checkbox"> Whole words only</label></div>
+<div class="editor-toolbar"><button id="replace-first" type="button" class="secondary">Replace first</button><button id="replace-all" type="button">Replace all</button><button id="sample-button" type="button" class="secondary">Try example</button></div>
+<div class="editor-results"><div class="growth-metrics" aria-live="polite"><div class="growth-metric"><strong id="replace-matches">0</strong><span>Matching occurrences</span></div><div class="growth-metric"><strong id="replace-applied">0</strong><span>Replacements in preview</span></div><div class="growth-metric"><strong>Local</strong><span>No text upload</span></div></div></div>
+<p class="editor-alert" id="replace-status" role="status">Enter a word or phrase to find.</p>
+<div class="growth-field"><label for="replace-output">Result preview (read-only)</label><textarea id="replace-output" class="editor-readout" readonly aria-describedby="replace-status"></textarea></div>
+<div class="editor-toolbar"><button id="copy-button" type="button">Copy result</button><button id="use-output-button" type="button" class="secondary">Use result as input</button><span id="copy-status" class="growth-status" role="status"></span></div>
+<p class="growth-status">Find uses literal text, not a regular expression. Replacement symbols like $& stay literal. The source is unchanged until you select Use result as input.</p>
+</div>
+
+<h2>How to replace a word or phrase in a document</h2>
+<ol><li>Paste the text you want to edit into the Text to edit field.</li><li>Enter the exact word or phrase you want to find.</li><li>Type the replacement, or leave Replace with empty to delete matches.</li><li>Choose Match case or Whole words only if needed.</li><li>Select Replace first or Replace all; review the result, then copy it.</li></ol>
+<h2>Case-sensitive versus case-insensitive matching</h2>
+<p>Without Match case, searching for <code>color</code> can match <code>Color</code> and <code>COLOR</code>. With Match case, only matching capitalization is replaced. The replacement text is inserted exactly as typed; it does not automatically imitate the original capitalization.</p>
+<h2>Whole-word matching protects longer words</h2>
+<p>Replacing <code>cat</code> inside <code>concatenate</code> can damage a document. Enable Whole words only to restrict matches to boundaries around letters, numbers and underscores. For example, matching <code>cat</code> as a whole word will not change <code>cats</code>. For languages without spaces between words, inspect the preview carefully.</p>
+<h2>Why use a literal text replacer?</h2><p>Literal matching avoids regular-expression characters being interpreted as commands. If your search includes a period, bracket or dollar sign, the tool looks for those actual characters. This makes it useful for quick edits to product names, URLs, marketing copy and repeated phrases without needing to learn regex syntax.</p>
+<h2>Frequently asked questions</h2>
+<h3>Can I delete all occurrences of a term?</h3><p>Yes. Leave the replacement field empty and select Replace all to generate a preview without the matched text.</p>
+<h3>Does Replace all modify my original textarea?</h3><p>No. The edited text appears in a separate read-only result box until you explicitly choose Use result as input.</p>
+<h3>Is this a regex editor?</h3><p>No. It deliberately uses literal search terms. For complex expressions, use a regular expression editor with its own preview and validation.</p>
+<div class="editor-related"><strong>Related free editing tools</strong><p><a href="/text-diff-checker/">Text Diff Checker</a> <a href="/find-and-replace-text/">Find and Replace</a> <a href="/readability-checker/">Readability Checker</a></p><p><a href="/word-counter/">Word Counter</a> <a href="/keyword-density-checker/">Keyword Density</a> <a href="/text-case-converter/">Case Converter</a></p></div>
+</article></main>
+<footer><a href="/">Home</a><a href="/character-counter/">Character Counter</a><a href="/about/">About</a><a href="/privacy/">Privacy</a><a href="/contact/">Contact</a><button class="footer-privacy-choices" type="button" data-privacy-open>Privacy choices</button><p>© 2026 PostChars. Independent online text tools.</p></footer>
+<script defer src="/guide-consent.js?v=20261031-2"></script>
+<script type="module" src="/src/editor-tools.ts"></script>
+</body></html>

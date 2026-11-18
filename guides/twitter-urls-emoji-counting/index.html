@@ -1,0 +1,46 @@
+<!doctype html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Why X/Twitter URLs often count as 23 characters, how emoji and Chinese characters are weighted, and how to check a 280-character post before publishing.">
+<link rel="canonical" href="https://postchars.com/guides/twitter-urls-emoji-counting/">
+<link rel="stylesheet" href="/legal.css"><link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article"><meta property="og:title" content="How X/Twitter Counts URLs, Emoji and CJK Characters | PostChars">
+<meta property="og:url" content="https://postchars.com/guides/twitter-urls-emoji-counting/">
+<title>How X/Twitter Counts URLs, Emoji and Chinese Characters | PostChars</title>
+<meta name="postchars-page-type" content="editorial-guide">
+<script src="/analytics-config.js"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"How X Counts URLs, Emoji and Chinese Characters","description":"Why X/Twitter URLs often count as 23 characters, how emoji and Chinese characters are weighted, and how to check a 280-character post before publishing.","datePublished":"2026-10-31","dateModified":"2026-11-01","inLanguage":"en","isAccessibleForFree":true,"mainEntityOfPage":{"@type":"WebPage","@id":"https://postchars.com/guides/twitter-urls-emoji-counting/"},"author":{"@type":"Organization","name":"PostChars","url":"https://postchars.com/"},"publisher":{"@type":"Organization","name":"PostChars","url":"https://postchars.com/"},"articleSection":"Social media publishing"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://postchars.com/"},{"@type":"ListItem","position":2,"name":"X Character Counter","item":"https://postchars.com/twitter-character-counter/"},{"@type":"ListItem","position":3,"name":"X URLs and emoji"}]}]}</script>
+</head><body><header><a class="brand" href="/">postchars<span>.</span></a><nav aria-label="Navigation"><a href="/">Tools</a><a href="/twitter-character-counter/">X Counter</a><a href="/google-ads-character-counter/">Google Ads Counter</a><a href="/privacy/">Privacy</a></nav></header>
+<main><article><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/twitter-character-counter/">X Character Counter</a><span aria-hidden="true">/</span><span aria-current="page">X URLs and emoji</span></nav>
+<small class="eyebrow">X / TWITTER POST GUIDE · UPDATED NOVEMBER 2026</small>
+<h1>How X Counts URLs, Emoji and Chinese Characters</h1>
+<p class="lead">Counting letters is not the same as counting the weighted length of an X post. A draft that looks short can consume more of the standard 280-character allowance than expected.</p>
+<p><a href="/twitter-character-counter/"><strong>Open the free X/Twitter Character Counter</strong></a> to check your text with a live URL, emoji and weighted-length breakdown. Everything you type stays in your browser.</p>
+<p>Publishing the same message on several networks? <a href="/cross-platform-post-checker/">Compare your draft against 12 social and messaging fields</a>, with each platform’s counting method and caveats shown separately.</p>
+<h2>The difference between visible and weighted characters</h2>
+<p>A visible character is what your eyes perceive as a single unit, such as a letter or emoji. But computers can represent one visual symbol with several code points. X's published text rules also assign different <em>weights</em> to some characters. This is why plain JavaScript string length, a word processor's count and a social platform's count can disagree.</p>
+<h2>Why do links count as 23 characters?</h2>
+<p>Under the published <a href="https://github.com/twitter/twitter-text" target="_blank" rel="noopener noreferrer">twitter-text v3 rules</a>, a recognized URL has a configured fixed weight of 23 characters. For typical recognized links, the source URL's visible length therefore does not determine the number of characters left in a post. For example, a short <code>https://example.com</code> and a considerably longer path on that same domain can each count as 23 characters.</p>
+<p>The distinction matters when you add a link to a nearly finished draft: manually subtracting the URL's ordinary string length can produce the wrong result. Some unusual or malformed links may not be recognized by the parser, so use the actual text you intend to publish.</p>
+<h2>How are Chinese, Japanese and Korean counted?</h2>
+<p>In twitter-text v3, many characters used in Chinese, Japanese and Korean are weighted at two rather than one. For example, the string <code>中文</code> has two visible characters but a weighted length of four under these rules. Combining CJK and Latin characters in one post can therefore make mental estimates unreliable.</p>
+<h2>How much does an emoji count?</h2>
+<p>Many emoji count as two weighted characters. A simple <code>😀</code> may look like one visible symbol but uses two weighted units. Sequences involving skin-tone modifiers, joiners or flags can consist of several Unicode code points. Their treatment depends on the text parser and may differ from the count in a plain character counter. Our X tool shows both the visible-character and weighted-character totals, plus an illustrative count of emoji clusters.</p>
+
+<h2>Four examples to test</h2>
+<table><thead><tr><th scope="col">Text</th><th scope="col">Weighted length</th><th scope="col">Reason</th></tr></thead><tbody>
+<tr><td><code>Hello world</code></td><td>11</td><td>Latin letters and the space count once</td></tr>
+<tr><td><code>中文</code></td><td>4</td><td>Many CJK characters weigh two</td></tr>
+<tr><td><code>😀</code></td><td>2</td><td>A typical emoji uses two weighted units</td></tr>
+<tr><td><code>https://example.com</code></td><td>23</td><td>Recognized URL uses the configured fixed weight</td></tr>
+</tbody></table>
+<h2>How to check a draft in practice</h2>
+<p>Paste your draft into <a href="/twitter-character-counter/">the PostChars X counter</a>. Compare the weighted total with the reference 280-character standard-post limit, and inspect the URL and emoji counts if the number is surprising. Review the sample post preview for awkward line breaks. Then copy the finished draft and confirm the actual allowance in your X account.</p>
+<p>PostChars is not affiliated with X and does not validate longer subscription posts or every current X product feature. The tool uses the open-source twitter-text 3.1.0 parser; official limits can change over time.</p>
+<h2>Frequently asked questions</h2>
+<h3>Do spaces count on X?</h3><p>Yes. Ordinary spaces and punctuation contribute to the weighted total.</p>
+<h3>Does shortening a URL save characters?</h3><p>Under the published URL-weighting rules, typically not: a recognized link uses the same configured weight. A short-link service may help readability or tracking, but should not be assumed to reduce the X character count.</p>
+<h3>Should I trust a screenshot-based post preview?</h3><p>Only as a visual guide. The actual post display depends on X's current UI and may be different. Always verify in X before publishing.</p>
+<p>Also useful: <a href="/google-ads-character-counter/">Google Ads headline and description counter</a> for paid-search writing.</p>
+</article></main><footer><a href="/">Home</a><a href="/character-counter/">Character Counter</a><a href="/about/">About</a><a href="/privacy/">Privacy</a><a href="/contact/">Contact</a><button class="footer-privacy-choices" type="button" data-privacy-open>Privacy choices</button><p>© 2026 PostChars. Independent online text tools.</p></footer>
+<script defer src="/guide-consent.js?v=20261101-1"></script>
+</body></html>
