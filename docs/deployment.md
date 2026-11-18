@@ -58,3 +58,7 @@ CI tests the empty public build first, then injects synthetic account identifier
 into the build output and validates all generated integration points. Production
 uses the same pipeline with Cloudflare Pages build variables; no separate private
 source fork is needed.
+
+For the production Pages project, set `POSTCHARS_REQUIRE_OPERATOR_CONFIG=1`.
+This fail-closed gate requires all legacy analytics, advertising and verification
+settings, preventing a successful build that silently omits those integrations.
