@@ -38,6 +38,22 @@ jobs:
         run: npm run test:e2e
       - name: Runtime dependency security audit
         run: npm run audit:production
+      - name: Validate synthetic production configuration overlay
+        env:
+          POSTCHARS_REQUIRE_OPERATOR_CONFIG: '1'
+          POSTCHARS_GA4_ID: G-TEST0000001
+          POSTCHARS_ADSENSE_CLIENT: ca-pub-1111111111111111
+          POSTCHARS_ADSENSE_SCRIPT_URL: https://ads.invalid.test/adsbygoogle.js
+          POSTCHARS_ADS_TXT: google.com, pub-1111111111111111, DIRECT, f08c47fec0942fa0
+          POSTCHARS_NATIVE_SCRIPT_URL: https://ads.invalid.test/native.js
+          POSTCHARS_NATIVE_CONTAINER_ID: container-demoads
+          POSTCHARS_GUIDE_SCRIPT_URL: https://ads.invalid.test/guide.js
+          POSTCHARS_GUIDE_KEY: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+          POSTCHARS_AD_FRAME_ORIGIN: https://isolated.invalid.test
+          POSTCHARS_INDEXNOW_KEY: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        run: |
+          node scripts/apply-operator-config.mjs
+          node scripts/assert-operator-config.mjs
       - name: Preserve browser failure report
         if: failure()
         uses: actions/upload-artifact@v4

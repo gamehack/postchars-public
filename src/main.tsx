@@ -75,11 +75,14 @@ function PrivacyConsentBanner({
     <section className="privacy-consent" role="dialog" aria-label="Privacy preferences">
       <div className="privacy-consent-copy">
         <strong>Privacy preferences</strong>
-        <p>Choose whether this deployment may load optional Google Analytics. Analytics is disabled until the site operator configures their own GA4 measurement ID. Advertising integrations are not included in this release. Your text is never sent to analytics.</p>
+        <p>{adConfig.native.enabled
+          ? 'Choose optional Google Analytics and third-party advertisements. Google AdSense advertising consent must be handled separately by a certified CMP where required. Your text is never sent to analytics.'
+          : 'Choose whether this deployment may load optional Google Analytics. Analytics is disabled until the site operator configures their own GA4 measurement ID. Advertising integrations are not included in this release. Your text is never sent to analytics.'}</p>
         <a href="/privacy/">Read the Privacy Policy</a>
       </div>
       <div className="privacy-consent-actions">
-        <button type="button" className="consent-primary" onClick={() => onChoice({ analytics: true, advertising: false })}>Allow analytics</button>
+        <button type="button" className="consent-primary" onClick={() => onChoice({ analytics: true, advertising: adConfig.native.enabled })}>{adConfig.native.enabled ? 'Accept all' : 'Allow analytics'}</button>
+        {adConfig.native.enabled && <button type="button" className="consent-secondary" onClick={() => onChoice({ analytics: true, advertising: false })}>Analytics only</button>}
         <button type="button" className="consent-secondary" onClick={() => onChoice({ analytics: false, advertising: false })}>Reject optional</button>
       </div>
     </section>
