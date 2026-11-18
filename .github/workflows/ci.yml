@@ -32,6 +32,12 @@ jobs:
         run: npm ci --no-audit --no-fund
       - name: Unit tests, types, build, SEO and bundle checks
         run: npm run build
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Desktop and mobile browser E2E
+        run: npm run test:e2e
+      - name: Runtime dependency security audit
+        run: npm run audit:production
       - name: Validate synthetic production configuration overlay
         env:
           POSTCHARS_REQUIRE_OPERATOR_CONFIG: '1'
@@ -48,12 +54,6 @@ jobs:
         run: |
           node scripts/apply-operator-config.mjs
           node scripts/assert-operator-config.mjs
-      - name: Install Playwright Chromium
-        run: npx playwright install --with-deps chromium
-      - name: Desktop and mobile browser E2E
-        run: npm run test:e2e
-      - name: Runtime dependency security audit
-        run: npm run audit:production
       - name: Preserve browser failure report
         if: failure()
         uses: actions/upload-artifact@v4
