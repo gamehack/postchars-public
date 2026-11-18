@@ -25,7 +25,7 @@ const required = [
 const blocked = [
   /^marketing\//i, /^internal\//i, /^workflow-templates\//i,
   /^\.env(?:\.|$)/i, /\.(?:pem|key|p12|pfx|crt|cer)$/i,
-  /^public\/(?:ads\.txt|indexnow-key\.txt|guide-ad-frame\.html|native-ad-frame\.html)$/i,
+  /^public\/(?:ads\.txt|indexnow-key\.txt|guide-ad-config\.js|guide-ad-frame\.html|native-ad-frame\.html)$/i,
   /^scripts\/(?:report-adsterra-publisher|adsterra-api-core(?:\.test)?|report-gsc-url-inspection|check-production|submit-indexnow)\.mjs$/i,
   /^\.github\/workflows\/(?:adsterra-publisher-report|gsc-url-inspection|production-health|indexnow|bootstrap-lockfile|lighthouse-weekly)\.ya?ml$/i
 ];
@@ -55,6 +55,12 @@ const protectedFingerprints = new Map([
 ]);
 const errors = [];
 function scanText(content, label) {
+  if (/postchars-ga4-id["']\s+content=["'][^"']+["']/i.test(content)) {
+    errors.push('Hard-coded GA4 measurement meta tag in ' + label);
+  }
+  if (/guide-ad-config\.js/i.test(content)) {
+    errors.push('Removed publisher-specific guide ad config is referenced in ' + label);
+  }
   for (const [kind, pattern] of secretPatterns) {
     if (pattern.test(content)) errors.push('Possible ' + kind + ' in ' + label);
   }
@@ -83,6 +89,19 @@ function scanText(content, label) {
 }
 
 for (const path of required) if (!existsSync(path)) errors.push('Missing required file: ' + path);
+
+// Keep first-party analytics and advertising integrations inert in the public fork.
+if (existsSync('public/analytics-config.js') &&
+    !/var\s+measurementId\s*=\s*''\s*;/.test(readFileSync('public/analytics-config.js', 'utf8'))) {
+  errors.push('Public analytics config must have an empty GA4 measurementId');
+}
+if (existsSync('src/ad-config.ts')) {
+  const adConfig = readFileSync('src/ad-config.ts', 'utf8');
+  if (!/enabled:\s*false/.test(adConfig) || !/frameUrl:\s*''/.test(adConfig) ||
+      !/previewFrameUrl:\s*''/.test(adConfig)) {
+    errors.push('Public advertising config must remain disabled with empty frame URLs');
+  }
+}
 const assetNotices = existsSync('THIRD_PARTY_NOTICES.md') ? readFileSync('THIRD_PARTY_NOTICES.md', 'utf8') : '';
 for (const asset of ['public/favicon.svg', 'public/postchars-og.png']) {
   if (!assetNotices.includes(asset)) errors.push('Original visual asset missing ownership notice: ' + asset);
