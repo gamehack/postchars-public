@@ -1,0 +1,30 @@
+name: PostChars production health
+on:
+  schedule:
+    - cron: '45 0 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/production-health.yml'
+      - 'scripts/check-production.mjs'
+      - 'scripts/production-ops-core.mjs'
+      - 'public/sitemap.xml'
+permissions:
+  contents: read
+concurrency:
+  group: postchars-production-health
+  cancel-in-progress: false
+jobs:
+  check-production:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate monitoring parser tests
+        run: node --test scripts/production-ops-core.test.mjs
+      - name: Check production pages, SEO, monetization config and isolated frames
+        run: node scripts/check-production.mjs

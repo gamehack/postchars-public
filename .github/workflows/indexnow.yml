@@ -1,0 +1,26 @@
+name: Submit changed PostChars sitemap URLs to IndexNow
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/indexnow.yml'
+      - 'public/sitemap.xml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: postchars-indexnow
+  cancel-in-progress: false
+jobs:
+  submit-changed-sitemap:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test safe sitemap and IndexNow parsing
+        run: node --test scripts/production-ops-core.test.mjs
+      - name: Verify the live deployment and submit public sitemap URLs
+        run: node scripts/submit-indexnow.mjs

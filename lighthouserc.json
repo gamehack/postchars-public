@@ -2,9 +2,9 @@
   "ci": {
     "collect": {
       "url": [
-        "http://127.0.0.1:4173/",
-        "http://127.0.0.1:4173/cross-platform-post-checker/",
-        "http://127.0.0.1:4173/guides/social-media-character-limits/"
+        "https://postchars.com/",
+        "https://postchars.com/cross-platform-post-checker/",
+        "https://postchars.com/guides/social-media-character-limits/"
       ],
       "numberOfRuns": 1,
       "settings": {
@@ -13,9 +13,24 @@
     },
     "assert": {
       "assertions": {
-        "categories:performance": ["warn", {"minScore": 0.7}],
-        "categories:accessibility": ["warn", {"minScore": 0.85}],
-        "categories:seo": ["warn", {"minScore": 0.9}]
+        "categories:performance": [
+          "warn",
+          {
+            "minScore": 0.7
+          }
+        ],
+        "categories:accessibility": [
+          "warn",
+          {
+            "minScore": 0.85
+          }
+        ],
+        "categories:seo": [
+          "warn",
+          {
+            "minScore": 0.9
+          }
+        ]
       }
     },
     "upload": {
