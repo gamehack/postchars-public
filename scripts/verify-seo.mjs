@@ -3,7 +3,7 @@ import { join } from 'node:path';
 
 const sitemap = await readFile(join(process.cwd(), 'dist', 'sitemap.xml'), 'utf8');
 const urls = Array.from(sitemap.matchAll(/<loc>([^<]+)<\/loc>/g), (match) => match[1]);
-if (urls.length !== 42) throw new Error('Expected 42 canonical URLs; found ' + urls.length);
+if (urls.length !== 49) throw new Error('Expected 49 canonical URLs; found ' + urls.length);
 
 let checkedPrerenders = 0;
 for (const url of urls) {

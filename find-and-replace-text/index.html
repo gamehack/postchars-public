@@ -47,6 +47,16 @@
 <h3>Can I delete all occurrences of a term?</h3><p>Yes. Leave the replacement field empty and select Replace all to generate a preview without the matched text.</p>
 <h3>Does Replace all modify my original textarea?</h3><p>No. The edited text appears in a separate read-only result box until you explicitly choose Use result as input.</p>
 <h3>Is this a regex editor?</h3><p>No. It deliberately uses literal search terms. For complex expressions, use a regular expression editor with its own preview and validation.</p>
+<section class="tool-explainer" data-editorial-depth="1">
+<h2>Worked examples</h2>
+<table class="growth-table"><thead><tr><th scope="col">Task</th><th scope="col">Find</th><th scope="col">Replace with</th><th scope="col">Options</th></tr></thead><tbody>
+<tr><td>Rename a product consistently</td><td><code>Acme Lite</code></td><td><code>Acme Go</code></td><td>Replace all, case-sensitive</td></tr>
+<tr><td>Change “cat” but not “category”</td><td><code>cat</code></td><td><code>dog</code></td><td>Whole words</td></tr>
+<tr><td>Make an SMS GSM-7 friendly</td><td><code>’</code></td><td><code>'</code></td><td>Replace all</td></tr>
+<tr><td>Delete a word everywhere</td><td><code>very </code></td><td>(empty)</td><td>Replace all, whole words off</td></tr>
+</tbody></table>
+<p>The search is literal: characters such as <code>.</code>, <code>*</code> or <code>?</code> match themselves rather than acting as patterns, which avoids surprises for non-programmers. Whole-word matching treats letters, digits and underscores as word characters, so it works for accented words too. Always review the preview before copying, especially after a replace-all on short search terms. For bigger clean-ups, combine this tool with the <a href="/text-cleaner-online/">text cleaner</a>, and use the <a href="/text-diff-checker/">diff checker</a> to confirm exactly what changed. See also <a href="/guides/sms-gsm-7-vs-unicode/">why curly quotes matter in SMS</a>.</p>
+</section>
 <div class="editor-related"><strong>Related free editing tools</strong><p><a href="/text-diff-checker/">Text Diff Checker</a> <a href="/find-and-replace-text/">Find and Replace</a> <a href="/readability-checker/">Readability Checker</a></p><p><a href="/word-counter/">Word Counter</a> <a href="/keyword-density-checker/">Keyword Density</a> <a href="/text-case-converter/">Case Converter</a></p></div>
 </article></main>
 <footer><a href="/">Home</a><a href="/character-counter/">Character Counter</a><a href="/about/">About</a><a href="/privacy/">Privacy</a><a href="/contact/">Contact</a><button class="footer-privacy-choices" type="button" data-privacy-open>Privacy choices</button><p>© 2026 PostChars. Independent online text tools.</p></footer>

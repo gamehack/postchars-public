@@ -14,6 +14,7 @@ import { pageData, platforms, toolCards, toolGroups, toolCategories, textActions
 import { boundedHistory, DRAFT_SAVE_DELAY_MS, HISTORY_GROUP_DELAY_MS } from './editor-history';
 import XDetails from './XDetails';
 import GoogleAdsComposer from './GoogleAdsComposer';
+import { pageArticles } from './page-articles';
 import './styles.css';
 
 function formatNumber(value: number): string {
@@ -491,6 +492,12 @@ export function App({ page }: { page: string }) {
             <p><a href="/guides/linkedin-post-character-limit/">LinkedIn: 3,000-character post limit</a> · <a href="/guides/instagram-caption-character-limit/">Instagram: 2,200-character caption reference</a></p>
             <p><a href="/guides/twitter-urls-emoji-counting/">X: URL and emoji weighting explained</a> · <a href="/guides/google-ads-character-limits/">Google Ads: headline and description limits</a></p>
             <p><a href="/guides/social-media-character-limits/">Social media character limits: 12 platforms compared</a> · <a href="/cross-platform-post-checker/">Check one draft on 12 platforms</a></p>
+            <div className="section-kicker">WRITING GUIDES</div>
+            <h2>Write it well, not just short enough.</h2>
+            <p><a href="/guides/linkedin-hook-see-more/">LinkedIn: writing a hook before “see more”</a> · <a href="/guides/how-to-write-an-x-thread/">X: how to structure a thread</a></p>
+            <p><a href="/guides/sms-gsm-7-vs-unicode/">SMS: GSM-7 vs Unicode encoding explained</a> · <a href="/guides/google-ads-rsa-headlines/">Google Ads: writing RSA headlines</a></p>
+            <p><a href="/guides/youtube-title-description-best-practices/">YouTube: titles and descriptions</a> · <a href="/guides/readability-scores-explained/">Readability scores explained</a></p>
+            <p><a href="/guides/">Browse all PostChars guides</a></p>
           </section>
         )}
 
@@ -551,6 +558,8 @@ export function App({ page }: { page: string }) {
           </section>
         )}
 
+        {pageArticles[pageKey]}
+
         <section className="info-section">
           <div className="info-copy">
             <div className="section-kicker">BUILT FOR THE WAY YOU WRITE</div>
@@ -610,6 +619,7 @@ export function App({ page }: { page: string }) {
           <a href="/character-counter/">Character Counter</a><a href="/word-counter/">Word Counter</a>
           <a href="/text-case-converter/">Text Case Converter</a><a href="/remove-line-breaks/">Remove Line Breaks</a>
           <a href="/guides/twitter-urls-emoji-counting/">X Counting Guide</a><a href="/guides/google-ads-character-limits/">Google Ads Guide</a>
+          <a href="/guides/">All Guides</a>
           <a href="/about/">About</a><a href="/privacy/">Privacy</a><a href="/contact/">Contact</a>
           <a href="mailto:hello@postchars.com?subject=PostChars%20bug%20report">Report an issue</a>
           <button className="footer-privacy-choices" type="button" onClick={() => setConsentVisible(true)}>Privacy choices</button>

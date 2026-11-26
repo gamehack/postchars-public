@@ -44,6 +44,18 @@
 <h3>Why did one emoji turn a one-part SMS into two parts?</h3><p>An emoji is not generally available in the GSM-7 alphabet, so the message falls back to Unicode encoding. The single-part limit is reduced from 160 GSM-7 units to 70 Unicode units.</p>
 <h3>Do curly quotes and the euro sign behave the same way?</h3><p>No. Smart quotation marks generally require Unicode mode, while the euro sign is part of the GSM-7 extension table and consumes two GSM septets.</p>
 <h3>Does one SMS always cost the same?</h3><p>No. Providers commonly charge by segment, and prices vary by recipient country, channel and sender type. This page estimates segments only.</p>
+<section class="tool-explainer" data-editorial-depth="1">
+<h2>Find the character that switched your message to Unicode</h2>
+<p>When the encoding shows Unicode unexpectedly, the counter lists the characters responsible. The usual suspects are typographic marks inserted automatically by phones and word processors: curly apostrophes (’), curly quotes (“ ”), the ellipsis (…), en and em dashes (– —) and non-breaking spaces. Replacing them with their plain equivalents (', ", ..., -) and an ordinary space usually returns the message to GSM-7 and restores the 160-character single-segment limit. Accented letters such as á, í, ó and ú are not in the default GSM-7 table, so Spanish or Portuguese messages may need Unicode regardless; é, è, ñ, ü and several others are included.</p>
+<h2>Worked segment examples</h2>
+<table class="growth-table"><thead><tr><th scope="col">Message</th><th scope="col">Encoding</th><th scope="col">Segments</th></tr></thead><tbody>
+<tr><td>160 plain characters</td><td>GSM-7</td><td>1</td></tr>
+<tr><td>161 plain characters</td><td>GSM-7</td><td>2 (153 + 8)</td></tr>
+<tr><td>150 characters plus 5 euro signs (2 units each)</td><td>GSM-7</td><td>1 (160 units)</td></tr>
+<tr><td>71 Unicode units, e.g. text with one emoji</td><td>Unicode</td><td>2 (67 + 4)</td></tr>
+</tbody></table>
+<p>For a full explanation of the 140-byte payload, extension characters, emoji surrogate pairs and national language tables, read <a href="/guides/sms-gsm-7-vs-unicode/">SMS encoding explained: GSM-7 vs Unicode</a>. To locate invisible characters precisely, paste the message into the <a href="/unicode-character-inspector/">Unicode inspector</a>, and use <a href="/find-and-replace-text/">find and replace</a> to swap curly quotes for straight ones in one step.</p>
+</section>
 <div class="growth-related"><strong>More free writing tools</strong><p><a href="/character-counter/">Character Counter</a> · <a href="/word-counter/">Word Counter</a> · <a href="/google-ads-character-counter/">Google Ads Counter</a></p><p><a href="/sms-character-counter/">SMS Segment Counter</a> · <a href="/serp-snippet-preview/">SEO Snippet Preview</a> · <a href="/keyword-density-checker/">Keyword Density Checker</a></p></div>
 </article></main>
 <footer><a href="/">Home</a><a href="/character-counter/">Character Counter</a><a href="/about/">About</a><a href="/privacy/">Privacy</a><a href="/contact/">Contact</a><button class="footer-privacy-choices" type="button" data-privacy-open>Privacy choices</button><p>© 2026 PostChars. Independent online text tools.</p></footer>

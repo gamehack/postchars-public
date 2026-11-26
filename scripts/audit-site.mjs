@@ -6,6 +6,7 @@ const sitemap=await readFile(join(dist,'sitemap.xml'),'utf8');
 const urls=[...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1]);
 const seenTitles=new Map();
 let jsonLdCount=0, internalLinks=0, missing=[];
+const MIN_MAIN_WORDS=400;
 
 for(const url of urls){
  const path=new URL(url).pathname;
@@ -15,6 +16,13 @@ for(const url of urls){
  if(!title)throw new Error('Missing title: '+url);
  if(seenTitles.has(title))throw new Error('Duplicate page title: '+title+' at '+url+' and '+seenTitles.get(title));
  seenTitles.set(title,url);
+ // Thin-content guard: every indexable tool, guide and about page must carry
+ // substantive, crawlable prose inside <main> (scripts and styles excluded).
+ if(!['/contact/','/privacy/'].includes(path)){
+   const main=(html.replace(/<(script|style|noscript)\b[\s\S]*?<\/\1>/gi,'').match(/<main[\s\S]*<\/main>/i)||[''])[0];
+   const words=main.replace(/<[^>]+>/g,' ').replace(/&[a-z#0-9]+;/gi,' ').split(/\s+/).filter(w=>/[A-Za-z0-9]/.test(w)).length;
+   if(words<MIN_MAIN_WORDS)throw new Error('Thin page ('+words+' words in <main>, minimum '+MIN_MAIN_WORDS+'): '+url);
+ }
  if(!/<html[^>]*\blang=["']en["']/i.test(html))throw new Error('Missing English page language: '+url);
  if(/<meta[^>]*name=["']robots["'][^>]*noindex/i.test(html))throw new Error('Canonical page accidentally marked noindex: '+url);
  for(const script of html.matchAll(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)){

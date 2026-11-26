@@ -45,6 +45,22 @@
 <h2>FAQ</h2><h3>Is the same text valid everywhere?</h3><p>No. Fields, media types, paid plans, app versions, and platform validation methods vary. Use each destination publisher as the final validator.</p>
 <h3>Is my text uploaded?</h3><p>No. Calculations and copy actions are performed locally. Optional analytics measure anonymous actions only after consent, never your draft.</p>
 <h3>Why are counts different?</h3><p>Visible graphemes, Unicode code points, UTF-16 units, UTF-8 bytes and X weighted characters are not interchangeable, especially for URLs and emoji.</p>
+<section class="tool-explainer" data-editorial-depth="1">
+<h2>How to use the checker step by step</h2>
+<ol><li>Paste the draft exactly as you intend to publish it, including links, mentions, hashtags and line breaks.</li>
+<li>Scan the platform cards. Each shows the field it checks, the counting unit, the limit or reference, and whether the draft fits.</li>
+<li>Open the plain-text excerpts to see roughly how the opening reads on X, Instagram and LinkedIn.</li>
+<li>Where a platform is over its limit, edit the draft or create a platform-specific version in its dedicated counter.</li>
+<li>Copy the final text into each platform, which remains the final validator.</li></ol>
+<h2>Worked example</h2>
+<p>Take a 260-character announcement that includes one 60-character link and two emoji. On X, the link counts as 23 weighted characters and each emoji as 2, so the post measures about 225 and fits within 280. On Bluesky, the full link text and each emoji count as graphemes, so the same draft measures 260 graphemes, still under 300, but adding a 41st character beyond that would fail Bluesky before X. On Threads (500), LinkedIn (3,000) and Instagram (2,200) it fits comfortably, but the opening line is what each feed shows first. One draft, five different measurements, all correct for their platform.</p>
+<h2>Adapting one message for several networks</h2>
+<ul><li><strong>Keep the core sentence identical</strong> so the message is consistent.</li>
+<li><strong>Adjust the opening</strong> to each feed's preview: shorter for X and Bluesky, a stronger first line for LinkedIn and Instagram, where text is collapsed.</li>
+<li><strong>Move hashtags</strong> to where each platform's audience expects them, usually the end.</li>
+<li><strong>Check links</strong>: X weights them at 23, most other platforms count their full length.</li></ul>
+<p>Writing guides for specific platforms: <a href="/guides/linkedin-hook-see-more/">LinkedIn hooks</a>, <a href="/guides/how-to-write-an-x-thread/">X threads</a>, <a href="/guides/youtube-title-description-best-practices/">YouTube titles and descriptions</a> and <a href="/guides/sms-gsm-7-vs-unicode/">SMS encoding</a>.</p>
+</section>
 </article></main>
 <footer><a href="/about/">About</a> · <a href="/privacy/">Privacy</a> · <a href="/contact/">Contact</a> · <a href="#" data-privacy-open>Privacy preferences</a></footer>
 <script src="/guide-consent.js?v=20261031-2"></script><script type="module" src="/src/cross-platform-checker.ts"></script>

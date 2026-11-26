@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Plan, split and edit an X thread: opening posts, one idea per post, numbering and the 280 weighted-character budget, link placement and a worked example.">
+<link rel="canonical" href="https://postchars.com/guides/how-to-write-an-x-thread/">
+<link rel="stylesheet" href="/legal.css"><link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article"><meta property="og:site_name" content="PostChars">
+<meta property="og:title" content="How to Structure an X Thread People Finish Reading | PostChars"><meta property="og:description" content="Plan, split and edit an X thread: opening posts, one idea per post, numbering and the 280 weighted-character budget, link placement and a worked example.">
+<meta property="og:url" content="https://postchars.com/guides/how-to-write-an-x-thread/"><meta name="twitter:card" content="summary">
+<title>How to Structure an X Thread People Finish Reading | PostChars</title>
+<meta name="postchars-page-type" content="editorial-guide">
+<script src="/analytics-config.js"></script><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "How to Structure an X (Twitter) Thread People Finish Reading", "description": "Plan, split and edit an X thread: opening posts, one idea per post, numbering and the 280 weighted-character budget, link placement and a worked example.", "datePublished": "2026-11-27", "dateModified": "2026-11-27", "inLanguage": "en", "isAccessibleForFree": true, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://postchars.com/guides/how-to-write-an-x-thread/"}, "author": {"@type": "Organization", "name": "PostChars", "url": "https://postchars.com/"}, "publisher": {"@type": "Organization", "name": "PostChars", "url": "https://postchars.com/"}, "articleSection": "X / Twitter"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://postchars.com/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://postchars.com/guides/"}, {"@type": "ListItem", "position": 3, "name": "How to Structure an X (Twitter) Thread People Finish Reading"}]}]}</script>
+</head><body>
+<header><a class="brand" href="/">postchars<span>.</span></a>
+<nav aria-label="Navigation"><a href="/">Tools</a><a href="/guides/">Guides</a><a href="/x-thread-splitter/">X threads</a><a href="/privacy/">Privacy</a></nav></header>
+<main><article>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/guides/">Guides</a><span aria-hidden="true">/</span><span aria-current="page">X threads guide</span></nav>
+<small class="eyebrow">X / TWITTER WRITING GUIDE · NOVEMBER 2026</small>
+<h1>How to Structure an X (Twitter) Thread People Finish Reading</h1>
+<p class="lead">A thread is a series of connected posts that lets you explain something too big for one standard 280-character post. Good threads are planned like a short article: a clear opening, one idea per post, and an ending that pays off. This guide covers structure, the character budget each post really has, where to put links, and a worked example.</p>
+<p><a href="/x-thread-splitter/"><strong>Open the X Thread Splitter</strong></a> to turn a draft into numbered posts whose weighted length, including the numbering, stays within 280.</p>
+
+<h2>Thread or single post?</h2>
+<p>Before you start, decide whether the idea needs a thread at all. A thread is a good fit for a step-by-step process, a story with several beats, a list of resources with a sentence on each, or a summary of a longer piece of work. It is a poor fit for one opinion padded out to look substantial; readers notice when post 4 repeats post 2. X Premium subscribers can publish much longer single posts, but many readers still see the opening few lines first, so the structural advice below applies either way.</p>
+
+<h2>The anatomy of a thread</h2>
+<table><thead><tr><th scope="col">Part</th><th scope="col">Job</th><th scope="col">Typical length</th></tr></thead><tbody>
+<tr><td>Opening post</td><td>State the topic and the payoff; say it is a thread if that helps</td><td>One post, often well under 280</td></tr>
+<tr><td>Context</td><td>Why this matters, or what the reader needs to know first</td><td>One post</td></tr>
+<tr><td>Body</td><td>One step, point or example per post</td><td>3–10 posts</td></tr>
+<tr><td>Summary</td><td>The takeaway in a sentence or a short list</td><td>One post</td></tr>
+<tr><td>Next step</td><td>A link, a resource or a question</td><td>One post (optional)</td></tr>
+</tbody></table>
+
+<h2>Writing the opening post</h2>
+<p>The first post is the only one most people see in their timeline. It should stand alone: if someone reads nothing else, they should still learn what the thread is about and why it is worth their time. Compare:</p>
+<ul>
+<li><strong>Vague:</strong> “Some thoughts on pricing 🧵”</li>
+<li><strong>Specific:</strong> “We raised prices 30% last year and lost 4% of customers. Here’s how we decided, what we told users, and what we’d change: 🧵”</li>
+</ul>
+<p>The specific version names the result, signals what follows and sets expectations for length. It is 124 weighted characters in total, including 2 for the thread emoji, leaving plenty of room.</p>
+
+<h2>One idea per post</h2>
+<p>Each post should make one point that a reader could quote on its own. That makes posts easy to skim, easy to reply to, and easy to share individually. If you find yourself writing “and also” halfway through a post, that is usually where a new post should begin. A useful test: read each post in isolation. If it only makes sense after the previous one, add the minimum context (“Step 3:”, “The second reason:”) rather than relying on the reader’s memory.</p>
+
+<h2>The real character budget per post</h2>
+<p>Every post has 280 <em>weighted</em> characters under X’s published counting rules, which this site applies with the open-source twitter-text library. Several things eat into that budget:</p>
+<table><thead><tr><th scope="col">Element</th><th scope="col">Weighted cost</th></tr></thead><tbody>
+<tr><td>Numbering such as “ (3/8)”</td><td>6 for single digits; 8 once both numbers reach two digits, as in “ (10/12)”</td></tr>
+<tr><td>Any recognized URL</td><td>23, regardless of its visible length</td></tr>
+<tr><td>Most emoji</td><td>2 each</td></tr>
+<tr><td>Many Chinese, Japanese and Korean characters</td><td>2 each</td></tr>
+<tr><td>Ordinary Latin letters, digits, spaces</td><td>1 each</td></tr>
+</tbody></table>
+<p>A post with a link and a “(10/12)” suffix therefore has about 249 weighted characters left for words. The <a href="/x-thread-splitter/">thread splitter</a> accounts for the suffix automatically, and the <a href="/twitter-character-counter/">X character counter</a> shows the weighted total for any single post. For the details of URL and emoji weighting, see <a href="/guides/twitter-urls-emoji-counting/">how X counts URLs, emoji and Chinese characters</a>.</p>
+
+<h2>Numbering: when it helps</h2>
+<p>Numbering such as “1/8” tells readers how long the thread is and helps people reference a specific post. It costs characters and commits you to a count, so number only after the thread is final. For short threads of three or four posts, numbering is optional; for long ones it is a courtesy. If you add a post later, update every number, or use a format without a total such as “1/”.</p>
+
+<h2>Where to put links</h2>
+<p>A link in the opening post competes with the thread itself: readers who tap it leave before reading the rest. Many writers place the main link in the final post, after the reader has seen the value, or in a reply to the opening post. Whatever you choose, describe what the link leads to in words, because the preview card may not appear or may be cropped.</p>
+
+<h2>A worked example</h2>
+<p>Here is a five-post outline for a thread about preparing a conference talk:</p>
+<ol>
+<li>“I’ve given 40 conference talks. The prep process that finally stopped me running over time, in 5 steps: 🧵”</li>
+<li>“1. Write the one sentence you want people to remember. Every slide either supports it or gets cut.”</li>
+<li>“2. Draft the talk as an outline, not a script. Scripts make you read; outlines make you talk.”</li>
+<li>“3. Rehearse with a timer at 80% of your slot. Real talks run long because of pauses, laughs and clicker trouble.”</li>
+<li>“4. Cut the last 10% of slides before the final rehearsal, not after. Then share your slides: [link]”</li>
+</ol>
+<p>Each post is a self-contained tip, each is well under 280 weighted characters, and the link arrives at the end. You would adjust the opening promise (“in 5 steps”) to match the final count.</p>
+
+<h2>Editing checklist before you post</h2>
+<ol>
+<li>The first post works on its own and states the payoff.</li>
+<li>Each post makes one point and can be read in isolation.</li>
+<li>No post is over 280 weighted characters, including numbering and links.</li>
+<li>Numbers match the final count.</li>
+<li>Repetition has been cut: if two posts say the same thing, merge them.</li>
+<li>The final post summarises, links or asks a specific question.</li>
+<li>You have read the whole thread once more as a reader, top to bottom.</li>
+</ol>
+
+<h2>Frequently asked questions</h2>
+<h3>How long should an X thread be?</h3>
+<p>As long as it takes to make each point once. Many useful threads are five to ten posts. If a thread passes about fifteen posts, consider whether it would work better as an article with a short thread pointing to it.</p>
+<h3>Does the thread emoji count toward the limit?</h3>
+<p>Yes. 🧵 is an emoji and counts as two weighted characters under twitter-text rules.</p>
+<h3>Can PostChars post the thread for me?</h3>
+<p>No. The thread splitter is a local drafting tool. Copy each post into X to publish. Always confirm the final count in X, which is the authority on its own limits.</p>
+<p>Related: <a href="/x-thread-splitter/">X thread splitter</a> · <a href="/twitter-character-counter/">X character counter</a> · <a href="/cross-platform-post-checker/">cross-platform post checker</a> for Bluesky and Threads versions · <a href="/guides/social-media-character-limits/">social media limits compared</a>.</p>
+<p class="guide-byline">Written and reviewed by PostChars. Last reviewed November 27, 2026. PostChars is independent of the platforms discussed here. <a href="/about/">How we research and update guides</a>.</p>
+</article></main>
+<footer><a href="/">Home</a><a href="/guides/">Guides</a><a href="/character-counter/">Character Counter</a><a href="/about/">About</a><a href="/privacy/">Privacy</a><a href="/contact/">Contact</a><button class="footer-privacy-choices" type="button" data-privacy-open>Privacy choices</button><p>© 2026 PostChars. Independent online text tools.</p></footer>
+<script defer src="/guide-consent.js?v=20261101-1"></script>
+</body></html>
