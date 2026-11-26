@@ -30,5 +30,5 @@ assert.match(headers,/frame-ancestors https:\/\/postchars\.com/);
 assert.match(ads,/pub-1111111111111111/);
 assert.match(key,/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/);
 const xml=await read('sitemap.xml');
-assert.equal([...xml.matchAll(/<loc>/g)].length,42);
+assert.equal([...xml.matchAll(/<loc>/g)].length,49);
 console.log('Operator overlay fixture PASS: GA4, AdSense consent ordering, ad frame isolation, guide slots, ads.txt and IndexNow');
