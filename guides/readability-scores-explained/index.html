@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="How Flesch Reading Ease, Flesch-Kincaid, Gunning Fog, SMOG and Coleman-Liau are calculated, worked examples, what scores mean and where they mislead.">
+<link rel="canonical" href="https://postchars.com/guides/readability-scores-explained/">
+<link rel="stylesheet" href="/legal.css"><link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article"><meta property="og:site_name" content="PostChars">
+<meta property="og:title" content="Readability Scores Explained: Flesch, Grade Level and Limits | PostChars"><meta property="og:description" content="How Flesch Reading Ease, Flesch-Kincaid, Gunning Fog, SMOG and Coleman-Liau are calculated, worked examples, what scores mean and where they mislead.">
+<meta property="og:url" content="https://postchars.com/guides/readability-scores-explained/"><meta name="twitter:card" content="summary">
+<title>Readability Scores Explained: Flesch, Grade Level and Limits | PostChars</title>
+<meta name="postchars-page-type" content="editorial-guide">
+<script src="/analytics-config.js"></script><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "Readability Scores Explained: What Flesch, Grade Level and Fog Really Measure", "description": "How Flesch Reading Ease, Flesch-Kincaid, Gunning Fog, SMOG and Coleman-Liau are calculated, worked examples, what scores mean and where they mislead.", "datePublished": "2026-11-27", "dateModified": "2026-11-27", "inLanguage": "en", "isAccessibleForFree": true, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://postchars.com/guides/readability-scores-explained/"}, "author": {"@type": "Organization", "name": "PostChars", "url": "https://postchars.com/"}, "publisher": {"@type": "Organization", "name": "PostChars", "url": "https://postchars.com/"}, "articleSection": "Writing"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://postchars.com/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://postchars.com/guides/"}, {"@type": "ListItem", "position": 3, "name": "Readability Scores Explained: What Flesch, Grade Level and Fog Really Measure"}]}]}</script>
+</head><body>
+<header><a class="brand" href="/">postchars<span>.</span></a>
+<nav aria-label="Navigation"><a href="/">Tools</a><a href="/guides/">Guides</a><a href="/readability-checker/">Readability</a><a href="/privacy/">Privacy</a></nav></header>
+<main><article>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/guides/">Guides</a><span aria-hidden="true">/</span><span aria-current="page">Readability guide</span></nav>
+<small class="eyebrow">WRITING GUIDE · NOVEMBER 2026</small>
+<h1>Readability Scores Explained: What Flesch, Grade Level and Fog Really Measure</h1>
+<p class="lead">Readability formulas turn a passage into a single number using a few countable features, mostly sentence length and word length. They are quick and consistent, which makes them useful for spotting dense writing. They are also blind to meaning, layout and audience. This guide shows how the main formulas work, walks through the arithmetic and explains when to trust the result.</p>
+<p><a href="/readability-checker/"><strong>Open the Readability Checker</strong></a> to calculate Flesch Reading Ease and Flesch-Kincaid grade level for your own English text, locally in your browser.</p>
+
+<h2>What every formula has in common</h2>
+<p>Nearly all classic readability formulas combine two measurements:</p>
+<ul>
+<li><strong>Sentence length</strong>, usually average words per sentence. Long sentences make readers hold more in memory before the point arrives.</li>
+<li><strong>Word difficulty</strong>, approximated by syllables per word, letters per word, or the share of words with three or more syllables. Longer words are, on average, less familiar.</li>
+</ul>
+<p>None of the formulas reads the words. “The cat sat on the mat” and “The tax sat on the map” score identically. They also ignore headings, lists, examples, diagrams and whether the reader already knows the subject.</p>
+
+<h2>Flesch Reading Ease</h2>
+<p>Developed by Rudolf Flesch in 1948, the formula is:</p>
+<p><code>206.835 − 1.015 × (words ÷ sentences) − 84.6 × (syllables ÷ words)</code></p>
+<p>Higher scores mean easier text. Typical interpretation bands:</p>
+<table><thead><tr><th scope="col">Score</th><th scope="col">Description</th><th scope="col">Roughly comparable to</th></tr></thead><tbody>
+<tr><td>90–100</td><td>Very easy</td><td>Simple stories for young readers</td></tr>
+<tr><td>70–89</td><td>Easy to fairly easy</td><td>Conversational writing, many consumer emails</td></tr>
+<tr><td>60–69</td><td>Standard</td><td>Plain-English news and general web content</td></tr>
+<tr><td>50–59</td><td>Fairly difficult</td><td>Longer feature articles, business reports</td></tr>
+<tr><td>30–49</td><td>Difficult</td><td>Academic and specialist writing</td></tr>
+<tr><td>Below 30</td><td>Very difficult</td><td>Legal and highly technical text</td></tr>
+</tbody></table>
+<h3>A worked example</h3>
+<p>Take a hypothetical passage of 100 words in 5 sentences with 150 syllables. Average sentence length is 20 words; average syllables per word is 1.5.</p>
+<p><code>206.835 − 1.015 × 20 − 84.6 × 1.5 = 206.835 − 20.3 − 126.9 = 59.6</code></p>
+<p>A score of about 60 sits on the boundary between “fairly difficult” and “standard”. Now split the same content into 8 sentences (12.5 words each) and replace a few long words so the passage has 140 syllables (1.4 per word):</p>
+<p><code>206.835 − 1.015 × 12.5 − 84.6 × 1.4 = 206.835 − 12.69 − 118.44 ≈ 75.7</code></p>
+<p>Shorter sentences and slightly shorter words moved the score by 16 points without removing any information.</p>
+<p>The formula is not bounded to 0–100. Very short sentences of one-syllable words can exceed 100: “The cat sat on the mat. It was warm.” has 9 words, 2 sentences and 9 syllables, which gives <code>206.835 − 4.57 − 84.6 ≈ 117.7</code>.</p>
+
+<h2>Flesch-Kincaid Grade Level</h2>
+<p>Adapted for the US Navy in 1975, this version expresses difficulty as a US school grade:</p>
+<p><code>0.39 × (words ÷ sentences) + 11.8 × (syllables ÷ words) − 15.59</code></p>
+<p>For the first example above (20 words per sentence, 1.5 syllables per word): <code>7.8 + 17.7 − 15.59 ≈ 9.9</code>, roughly a US tenth-grade text. A grade of 8 does not mean every eighth-grader will understand the passage, or that an adult will find it childish. It is a statistical comparison, not a judgement of the reader.</p>
+
+<h2>Other formulas you will see</h2>
+<table><thead><tr><th scope="col">Formula</th><th scope="col">What it uses</th><th scope="col">Calculation</th></tr></thead><tbody>
+<tr><td>Gunning Fog</td><td>Sentence length and “complex” words (three or more syllables)</td><td><code>0.4 × [(words ÷ sentences) + 100 × (complex words ÷ words)]</code></td></tr>
+<tr><td>SMOG</td><td>Polysyllabic words in a sample of sentences</td><td><code>1.043 × √(polysyllables × 30 ÷ sentences) + 3.1291</code></td></tr>
+<tr><td>Coleman-Liau</td><td>Letters and sentences per 100 words (no syllables)</td><td><code>0.0588 × L − 0.296 × S − 15.8</code></td></tr>
+<tr><td>Automated Readability Index</td><td>Characters per word and words per sentence</td><td><code>4.71 × (characters ÷ words) + 0.5 × (words ÷ sentences) − 21.43</code></td></tr>
+</tbody></table>
+<p>Coleman-Liau and ARI count letters instead of syllables, which makes them easier for software to calculate consistently. All of these produce grade-style numbers, and they rarely agree exactly with each other.</p>
+
+<h2>Why two tools give different scores for the same text</h2>
+<ul>
+<li><strong>Syllable counting.</strong> Software estimates syllables with rules or dictionaries. “Fire”, “every” and “business” are counted differently by different tools.</li>
+<li><strong>Sentence detection.</strong> Abbreviations (“Dr.”, “e.g.”), decimal numbers, headings without full stops and bullet lists all confuse sentence boundaries.</li>
+<li><strong>What counts as a word.</strong> Numbers, URLs, hyphenated compounds and contractions are handled differently.</li>
+<li><strong>Sample size.</strong> A score from two sentences is unstable. Use at least a full paragraph; the PostChars checker flags texts under 30 words as unreliable.</li>
+</ul>
+
+<h2>How to use a readability score well</h2>
+<ol>
+<li><strong>Know your audience first.</strong> A score that suits a consumer help article would be wrong for a peer-reviewed paper, and vice versa.</li>
+<li><strong>Use the score to find problems, not to define success.</strong> Look at the sentences over 25 words that the checker highlights and ask whether each one carries more than one idea.</li>
+<li><strong>Prefer clarity edits over word swaps.</strong> Splitting a sentence that combines two ideas helps readers. Replacing a precise technical term with a vague short word can hurt them.</li>
+<li><strong>Keep necessary terms and define them.</strong> “Photosynthesis” has five syllables and is still the right word in a biology lesson.</li>
+<li><strong>Test with real readers</strong> when it matters. Ask someone from the intended audience to explain the passage back to you.</li>
+</ol>
+
+<h2>Limitations to keep in mind</h2>
+<p>These formulas were designed for English prose. They do not transfer directly to other languages, whose word and syllable patterns differ. They ignore formatting, so a well-structured list scores the same as a wall of text. They cannot measure accuracy, tone, inclusiveness or logical order. And a score is not a search-ranking factor that you should optimise for; it is an editing aid.</p>
+
+<h2>Frequently asked questions</h2>
+<h3>What is a good Flesch Reading Ease score?</h3>
+<p>For general web content aimed at a broad adult audience, scores around 60–70 are commonly suggested. The right target depends on your readers and subject.</p>
+<h3>Is a lower grade level always better?</h3>
+<p>No. A lower grade is easier on average, but forcing technical content into very short words can make it less precise. Aim for the simplest wording that keeps the meaning exact.</p>
+<h3>Why does my score change when I add a heading?</h3>
+<p>A heading without a full stop can be joined to the next sentence, making one very long “sentence”. Score body text separately from headings when you can.</p>
+<p>Formulas as documented in <a href="https://support.microsoft.com/en-us/word/get-your-document-s-readability-and-level-statistics-in-microsoft-word" target="_blank" rel="noopener noreferrer">Microsoft’s readability statistics guide</a> (Flesch and Flesch-Kincaid). Related tools: <a href="/readability-checker/">readability checker</a> · <a href="/syllable-counter/">syllable counter</a> · <a href="/word-counter/">word counter</a> · <a href="/guides/linkedin-hook-see-more/">writing a LinkedIn hook</a>.</p>
+<p class="guide-byline">Written and reviewed by PostChars. Last reviewed November 27, 2026. PostChars is independent of the platforms discussed here. <a href="/about/">How we research and update guides</a>.</p>
+</article></main>
+<footer><a href="/">Home</a><a href="/guides/">Guides</a><a href="/character-counter/">Character Counter</a><a href="/about/">About</a><a href="/privacy/">Privacy</a><a href="/contact/">Contact</a><button class="footer-privacy-choices" type="button" data-privacy-open>Privacy choices</button><p>© 2026 PostChars. Independent online text tools.</p></footer>
+<script defer src="/guide-consent.js?v=20261101-1"></script>
+</body></html>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Why one curly quote can double the cost of an SMS. GSM-7 and UCS-2 encoding, 160/153 and 70/67 limits, extension characters and worked segment examples.">
+<link rel="canonical" href="https://postchars.com/guides/sms-gsm-7-vs-unicode/">
+<link rel="stylesheet" href="/legal.css"><link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article"><meta property="og:site_name" content="PostChars">
+<meta property="og:title" content="SMS Encoding Explained: GSM-7 vs Unicode (UCS-2) | PostChars"><meta property="og:description" content="Why one curly quote can double the cost of an SMS. GSM-7 and UCS-2 encoding, 160/153 and 70/67 limits, extension characters and worked segment examples.">
+<meta property="og:url" content="https://postchars.com/guides/sms-gsm-7-vs-unicode/"><meta name="twitter:card" content="summary">
+<title>SMS Encoding Explained: GSM-7 vs Unicode (UCS-2) | PostChars</title>
+<meta name="postchars-page-type" content="editorial-guide">
+<script src="/analytics-config.js"></script><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "SMS Encoding Explained: GSM-7 vs Unicode and Why Segments Multiply", "description": "Why one curly quote can double the cost of an SMS. GSM-7 and UCS-2 encoding, 160/153 and 70/67 limits, extension characters and worked segment examples.", "datePublished": "2026-11-27", "dateModified": "2026-11-27", "inLanguage": "en", "isAccessibleForFree": true, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://postchars.com/guides/sms-gsm-7-vs-unicode/"}, "author": {"@type": "Organization", "name": "PostChars", "url": "https://postchars.com/"}, "publisher": {"@type": "Organization", "name": "PostChars", "url": "https://postchars.com/"}, "articleSection": "SMS"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://postchars.com/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://postchars.com/guides/"}, {"@type": "ListItem", "position": 3, "name": "SMS Encoding Explained: GSM-7 vs Unicode and Why Segments Multiply"}]}]}</script>
+</head><body>
+<header><a class="brand" href="/">postchars<span>.</span></a>
+<nav aria-label="Navigation"><a href="/">Tools</a><a href="/guides/">Guides</a><a href="/sms-character-counter/">SMS encoding</a><a href="/privacy/">Privacy</a></nav></header>
+<main><article>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/guides/">Guides</a><span aria-hidden="true">/</span><span aria-current="page">SMS encoding guide</span></nav>
+<small class="eyebrow">SMS ENCODING GUIDE · NOVEMBER 2026</small>
+<h1>SMS Encoding Explained: GSM-7 vs Unicode and Why Segments Multiply</h1>
+<p class="lead">Two text messages with the same number of characters can cost different amounts to send. The reason is encoding: an SMS uses either the compact <strong>GSM-7</strong> alphabet or <strong>Unicode (UCS-2/UTF-16)</strong>, and a single character outside GSM-7 switches the whole message to the larger encoding. This guide explains the rules, shows worked examples and lists the characters that most often cause surprises.</p>
+<p><a href="/sms-character-counter/"><strong>Open the SMS Character Counter</strong></a> to see the encoding, units and estimated segments for your own message, calculated locally in your browser.</p>
+
+<h2>The 140-byte payload behind every SMS</h2>
+<p>A single SMS carries at most 140 bytes (1,120 bits) of user data. How many characters fit in that space depends on how many bits each character needs:</p>
+<table><thead><tr><th scope="col">Encoding</th><th scope="col">Bits per character</th><th scope="col">Single SMS</th><th scope="col">Each part of a longer SMS</th></tr></thead><tbody>
+<tr><td>GSM-7</td><td>7</td><td>160 characters</td><td>153 characters</td></tr>
+<tr><td>UCS-2 / UTF-16</td><td>16</td><td>70 units</td><td>67 units</td></tr>
+</tbody></table>
+<p>1,120 bits divided by 7 is 160; divided by 16 it is 70. When a message is longer than one SMS, the phone or gateway splits it into <strong>segments</strong> and adds a small User Data Header (UDH) to each one so the receiving phone can reassemble them in order. The header normally takes 6 bytes, which leaves room for 153 GSM-7 characters or 67 UCS-2 units per segment. The recipient sees one message, but the network carries, and most providers bill, several.</p>
+
+<h2>What is in the GSM-7 alphabet</h2>
+<p>The GSM 7-bit default alphabet, defined in the 3GPP specification TS 23.038, has 128 positions. It covers unaccented Latin letters, digits, common punctuation and a selection of accented and Greek letters chosen for European languages, including <code>é è ù ì ò Ç Ø ø Å å Ä ä Ö ö Ñ ñ Ü ü ß É Æ æ</code> and Greek capitals such as <code>Δ Φ Γ Λ Ω Π Ψ Σ Θ Ξ</code>. It also contains <code>@ £ $ ¥ ¡ ¿ §</code>.</p>
+<p>Some characters you might expect are <strong>not</strong> there. Notably, <code>á í ó ú</code> (common in Spanish and Portuguese) and <code>ç</code> in lowercase are missing from the default table, as are curly quotes, the ellipsis character and long dashes.</p>
+<h3>The extension table: characters that cost two</h3>
+<p>Nine more characters are available through an escape code, so each uses <strong>two</strong> GSM-7 positions: <code>^ { } \ [ ] ~ |</code> and the euro sign <code>€</code> (plus a form-feed control character). A message with one euro sign and 159 ordinary characters therefore uses 161 units and needs two segments.</p>
+
+<h2>One character can switch the whole message to Unicode</h2>
+<p>Encoding applies to the whole message, not character by character. If even one character cannot be represented in GSM-7, the entire SMS is sent as UCS-2, and the limit drops from 160 to 70. The usual culprits are invisible in everyday writing:</p>
+<table><thead><tr><th scope="col">Character</th><th scope="col">Looks like</th><th scope="col">Typical source</th></tr></thead><tbody>
+<tr><td>’ (right single quotation mark)</td><td>'</td><td>Word processors and phones that “smart-quote” apostrophes</td></tr>
+<tr><td>“ ” (curly double quotes)</td><td>"</td><td>Copied marketing copy, CMS editors</td></tr>
+<tr><td>– — (en and em dashes)</td><td>-</td><td>Auto-correct in document editors</td></tr>
+<tr><td>… (ellipsis)</td><td>...</td><td>Auto-correct on phones</td></tr>
+<tr><td>Non-breaking space</td><td>a space</td><td>Web pages, spreadsheets</td></tr>
+<tr><td>Any emoji</td><td>😀</td><td>Deliberate, but often added late in review</td></tr>
+<tr><td>á, í, ó, ú</td><td>accented letters</td><td>Spanish, Portuguese, Irish and other languages</td></tr>
+</tbody></table>
+<p>The fix is usually simple: replace curly quotes with straight ones, dashes with hyphens and the ellipsis with three full stops. The <a href="/find-and-replace-text/">find and replace tool</a> handles this quickly, and the <a href="/unicode-character-inspector/">Unicode inspector</a> reveals non-breaking and zero-width spaces you cannot see.</p>
+
+<h2>Worked examples</h2>
+<table><thead><tr><th scope="col">Message</th><th scope="col">Encoding</th><th scope="col">Units</th><th scope="col">Segments</th></tr></thead><tbody>
+<tr><td>160 plain GSM characters</td><td>GSM-7</td><td>160</td><td>1</td></tr>
+<tr><td>161 plain GSM characters</td><td>GSM-7</td><td>161</td><td>2 (153 + 8)</td></tr>
+<tr><td>150 GSM characters plus 5 euro signs</td><td>GSM-7</td><td>160</td><td>1</td></tr>
+<tr><td>69 characters plus one curly apostrophe</td><td>UCS-2</td><td>70</td><td>1</td></tr>
+<tr><td>100 characters including one emoji</td><td>UCS-2</td><td>101 (the emoji uses 2)</td><td>2</td></tr>
+<tr><td>306 plain GSM characters</td><td>GSM-7</td><td>306</td><td>2 (153 + 153)</td></tr>
+<tr><td>135 Unicode units</td><td>UCS-2</td><td>135</td><td>3 (67 + 67 + 1)</td></tr>
+</tbody></table>
+<p>Consider a one-time-password message: <code>Your code is 482913. It expires in 10 minutes.</code> That is 46 GSM-7 characters and fits in one segment with plenty of room. Translate it to Spanish as <code>Tu código es 482913. Caduca en 10 minutos.</code> and the <code>ó</code> switches the message to UCS-2. It still fits in one segment at 42 units, but there is far less headroom: a longer localized template can jump to two or three segments where the English version needs one.</p>
+
+<h2>Emoji and the UCS-2 versus UTF-16 detail</h2>
+<p>The original Unicode SMS encoding, UCS-2, could only represent characters in Unicode’s Basic Multilingual Plane. Most emoji live outside it and are sent as UTF-16 <em>surrogate pairs</em>: two 16-bit units per emoji. That is why a single smiley uses two of the 70 available units, and why a complex emoji such as a family or a flag can use four, eight or more. Most modern phones and gateways handle this, but the unit count is what determines segments.</p>
+<p>Gateways also try not to split a character across two segments. An escape sequence for an extension character, or the two halves of a surrogate pair, are kept together, so a segment can occasionally hold one unit fewer than the nominal 153 or 67. Treat calculator results near a boundary as estimates.</p>
+
+<h2>National language shift tables</h2>
+<p>TS 23.038 also defines <em>national language shift tables</em> for languages such as Turkish, Spanish, Portuguese and several Indian languages. When both the sending system and the receiving network support them, a message can use those extra letters while staying in a 7-bit encoding, at the cost of a few bytes of header in each segment. Support varies by country, carrier and provider, so many senders do not rely on it. Ask your SMS provider whether it is used on your routes.</p>
+
+<h2>A checklist before sending bulk or transactional SMS</h2>
+<ol>
+<li>Paste the exact final template, including the sender name, links and opt-out wording, into the <a href="/sms-character-counter/">SMS counter</a>.</li>
+<li>Check whether the encoding is GSM-7 or Unicode. If it is Unicode by accident, find the character responsible and replace it.</li>
+<li>Test with the longest realistic value for every variable, such as a long customer name or order number.</li>
+<li>Check localized versions separately; accented letters change the encoding in some languages and not in others.</li>
+<li>Confirm segment counts and pricing with your provider. Some providers offer automatic “smart encoding” that replaces common Unicode punctuation with GSM-7 equivalents; know whether yours does.</li>
+</ol>
+
+<h2>Frequently asked questions</h2>
+<h3>Why is my 120-character message being sent as two SMS?</h3>
+<p>It almost certainly contains a character outside GSM-7, which switches the message to Unicode with a 70-unit single-segment limit. Curly apostrophes and emoji are the most common causes.</p>
+<h3>Does the recipient see two separate messages?</h3>
+<p>Usually not. The header in each segment lets the phone reassemble the message. Very old devices, or some routes, may show parts separately or out of order.</p>
+<h3>Is the euro sign a Unicode character in SMS?</h3>
+<p>No. The euro sign is in the GSM-7 extension table, so it stays in GSM-7 but uses two units.</p>
+<h3>Do links count differently in SMS?</h3>
+<p>No. Unlike X, SMS has no fixed link weight. Every character of a URL counts. A shorter link saves units, which is one reason transactional messages often use short domains.</p>
+<p>Further reading: the <a href="https://www.twilio.com/docs/glossary/what-sms-character-limit" target="_blank" rel="noopener noreferrer">Twilio glossary on SMS character limits</a> and the 3GPP specification <a href="https://www.3gpp.org/dynareport/23038.htm" target="_blank" rel="noopener noreferrer">TS 23.038</a>. For other messaging limits, see <a href="/guides/social-media-character-limits/">social media character limits compared</a> and the <a href="/telegram-bot-message-counter/">Telegram bot message counter</a>.</p>
+<p class="guide-byline">Written and reviewed by PostChars. Last reviewed November 27, 2026. PostChars is independent of the platforms discussed here. <a href="/about/">How we research and update guides</a>.</p>
+</article></main>
+<footer><a href="/">Home</a><a href="/guides/">Guides</a><a href="/character-counter/">Character Counter</a><a href="/about/">About</a><a href="/privacy/">Privacy</a><a href="/contact/">Contact</a><button class="footer-privacy-choices" type="button" data-privacy-open>Privacy choices</button><p>© 2026 PostChars. Independent online text tools.</p></footer>
+<script defer src="/guide-consent.js?v=20261101-1"></script>
+</body></html>

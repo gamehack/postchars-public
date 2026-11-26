@@ -49,6 +49,16 @@
 <h3>Can I compare two code snippets?</h3><p>Yes, if you paste them as plain text. This tool does not parse programming languages or ignore syntax-specific changes.</p>
 <h3>Why are edited lines shown twice?</h3><p>The comparison works at the line level. A changed line can appear as an old line removed and a new line added.</p>
 <h3>Does PostChars save either version?</h3><p>No. Entered text stays in browser memory while the page is open.</p>
+<section class="tool-explainer" data-editorial-depth="1">
+<h2>Choosing the right comparison mode</h2>
+<table class="growth-table"><thead><tr><th scope="col">Mode</th><th scope="col">Best for</th><th scope="col">Limit per side</th></tr></thead><tbody>
+<tr><td>Lines</td><td>Code, lists, configuration files, long documents</td><td>Large inputs</td></tr>
+<tr><td>Words</td><td>Edited paragraphs, contracts, copy reviews</td><td>500 words</td></tr>
+<tr><td>Characters</td><td>Short strings, typos, identifiers, Unicode differences</td><td>1,200 characters</td></tr>
+</tbody></table>
+<p>A practical routine: compare by lines first to see which parts changed, then paste a changed paragraph into word mode to see exactly which words were edited. If two lines look identical but are reported as different, compare them by characters, or check them in the <a href="/unicode-character-inspector/">Unicode inspector</a>; a non-breaking space or a curly quote is the usual cause.</p>
+<p>Common uses include checking what a colleague changed in a shared draft, confirming that a translation update only touched the intended strings, reviewing a legal clause between versions, and verifying the output of the <a href="/find-and-replace-text/">find and replace tool</a> or the <a href="/text-cleaner-online/">text cleaner</a>. Both versions stay in your browser.</p>
+</section>
 <div class="editor-related"><strong>Related free editing tools</strong><p><a href="/text-diff-checker/">Text Diff Checker</a> <a href="/find-and-replace-text/">Find and Replace</a> <a href="/readability-checker/">Readability Checker</a></p><p><a href="/word-counter/">Word Counter</a> <a href="/keyword-density-checker/">Keyword Density</a> <a href="/text-case-converter/">Case Converter</a></p></div>
 </article></main>
 <footer><a href="/">Home</a><a href="/character-counter/">Character Counter</a><a href="/about/">About</a><a href="/privacy/">Privacy</a><a href="/contact/">Contact</a><button class="footer-privacy-choices" type="button" data-privacy-open>Privacy choices</button><p>© 2026 PostChars. Independent online text tools.</p></footer>

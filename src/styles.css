@@ -197,6 +197,12 @@ button:disabled { opacity: .42; cursor: not-allowed; }
 .x-guide-table th { padding: 12px 15px; background: #f4f3ff; color: #4c4a87; }
 .x-guide-table td { padding: 13px 15px; color: #5a667a; border-bottom: 1px solid #e9ecf3; }
 .x-guide-table code { color: #343c51; font-size: 12px; }
+.x-guide ol, .x-guide ul { max-width: 880px; padding-left: 20px; color: #687489; font-size: 13px; line-height: 1.85; }
+.x-guide li { margin: 4px 0; }
+.x-guide code { color: #343c51; font-size: 12px; }
+.page-article-links { margin-top: 26px; padding-top: 18px; border-top: 1px solid #e9ecf3; }
+.page-article-links strong { color: #202b43; font-size: 13px; }
+.page-article-links ul { margin: 8px 0 0; }
 .x-guide .x-guide-note { font-size: 11px; color: #8b94a5; }
 @media (max-width: 640px) {
   .hero-compact { padding: 29px 0 14px; }
